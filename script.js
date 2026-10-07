@@ -96,10 +96,12 @@ const state = {
 const grid = document.getElementById("product-grid");
 const empty = document.getElementById("empty-state");
 const meta = document.getElementById("results-meta");
-const cartBadge = document.querySelector("[data-cart-count]");
 const toast = document.getElementById("toast");
 const headerInput = document.getElementById("header-query");
 const heroInput = document.getElementById("hero-query");
+const menuToggle = document.querySelector(".menu-toggle");
+const mobileNav = document.getElementById("mobile-nav");
+const newsletterForm = document.getElementById("newsletter-form");
 
 function matches(product) {
   const q = state.query.trim().toLowerCase();
@@ -155,6 +157,7 @@ function setCategory(category) {
     card.classList.toggle("is-active", card.dataset.category === state.category);
   });
   render();
+  document.getElementById("prodotti").scrollIntoView({ behavior: "smooth" });
 }
 
 function applyQuery(value) {
@@ -164,18 +167,28 @@ function applyQuery(value) {
   render();
 }
 
+function showToast(message) {
+  toast.hidden = false;
+  toast.textContent = message;
+  window.clearTimeout(showToast._t);
+  showToast._t = window.setTimeout(() => {
+    toast.hidden = true;
+  }, 2200);
+}
+
 function addToCart(id) {
   const product = PRODUCTS.find((p) => p.id === id);
   if (!product) return;
   state.cartCount += 1;
-  cartBadge.hidden = false;
-  cartBadge.textContent = String(state.cartCount);
-  toast.hidden = false;
-  toast.textContent = `${product.name} aggiunto al carrello`;
-  window.clearTimeout(addToCart._t);
-  addToCart._t = window.setTimeout(() => {
-    toast.hidden = true;
-  }, 2200);
+  showToast(`${product.name} aggiunto al carrello`);
+}
+
+function setMobileMenu(open) {
+  if (!menuToggle || !mobileNav) return;
+  mobileNav.classList.toggle("is-open", open);
+  mobileNav.hidden = !open;
+  menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
+  menuToggle.setAttribute("aria-label", open ? "Chiudi menu" : "Apri menu");
 }
 
 document.querySelectorAll(".header-search, .hero-search").forEach((form) => {
@@ -184,6 +197,7 @@ document.querySelectorAll(".header-search, .hero-search").forEach((form) => {
     const input = form.querySelector("input");
     applyQuery(input.value);
     document.getElementById("prodotti").scrollIntoView({ behavior: "smooth" });
+    setMobileMenu(false);
   });
 });
 
@@ -199,5 +213,28 @@ grid.addEventListener("click", (event) => {
   const btn = event.target.closest("[data-add]");
   if (btn) addToCart(btn.dataset.add);
 });
+
+if (menuToggle) {
+  menuToggle.addEventListener("click", () => {
+    const open = menuToggle.getAttribute("aria-expanded") !== "true";
+    setMobileMenu(open);
+  });
+}
+
+if (mobileNav) {
+  mobileNav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => setMobileMenu(false));
+  });
+}
+
+if (newsletterForm) {
+  newsletterForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const email = newsletterForm.querySelector("input").value.trim();
+    if (!email) return;
+    newsletterForm.reset();
+    showToast("Iscrizione confermata. Benvenuta/o in Mercurius.");
+  });
+}
 
 render();
