@@ -101,8 +101,6 @@ const headerInput = document.getElementById("header-query");
 const heroInput = document.getElementById("hero-query");
 const menuToggle = document.querySelector(".menu-toggle");
 const mobileNav = document.getElementById("mobile-nav");
-const newsletterForm = document.getElementById("newsletter-form");
-
 function matches(product) {
   const q = state.query.trim().toLowerCase();
   const catOk =
@@ -224,16 +222,6 @@ if (menuToggle) {
 if (mobileNav) {
   mobileNav.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => setMobileMenu(false));
-  });
-}
-
-if (newsletterForm) {
-  newsletterForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const email = newsletterForm.querySelector("input").value.trim();
-    if (!email) return;
-    newsletterForm.reset();
-    showToast("Iscrizione confermata. Benvenuta/o in Mercurius.");
   });
 }
 
