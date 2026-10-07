@@ -119,6 +119,7 @@ function matches(product) {
 }
 
 function render() {
+  if (!grid) return;
   const items = PRODUCTS.filter(matches);
   grid.innerHTML = items
     .map(
@@ -140,7 +141,8 @@ function render() {
     )
     .join("");
 
-  empty.hidden = items.length > 0;
+  if (empty) empty.hidden = items.length > 0;
+  if (!meta) return;
   const extra = state.query ? ` per “${state.query.trim()}”` : "";
   if (items.length === 1) {
     meta.textContent = `1 pezzo selezionato${extra}`;
