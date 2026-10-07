@@ -654,7 +654,71 @@ h1 {
 }
 
 .newsletter {
+  padding: 1rem 1.25rem 2rem;
+}
+
+.policy {
   padding: 1rem 1.25rem 3.5rem;
+}
+
+.policy-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  border: 1px solid var(--line);
+  background: var(--bg-elev);
+  padding: 2.4rem 1.6rem;
+}
+
+.policy-inner h2 {
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  margin: 0 0 0.8rem;
+}
+
+.policy-lead {
+  color: var(--ivory-muted);
+  max-width: 40rem;
+  margin: 0 0 1.5rem;
+}
+
+.policy-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.4rem;
+}
+
+.policy-card {
+  border: 1px solid var(--line);
+  background: rgba(12, 11, 10, 0.45);
+  padding: 1.15rem 1.1rem;
+}
+
+.policy-card h3 {
+  margin: 0 0 0.45rem;
+  font-size: 1.25rem;
+  color: var(--copper);
+}
+
+.policy-card p {
+  margin: 0;
+  color: var(--ivory-muted);
+}
+
+.policy-card a,
+.policy-list a {
+  color: var(--copper);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.policy-list {
+  margin: 0;
+  padding-left: 1.15rem;
+  color: var(--ivory-muted);
+}
+
+.policy-list li {
+  margin: 0.4rem 0;
 }
 
 .newsletter-inner {
@@ -744,7 +808,8 @@ h1 {
   .feature-grid,
   .category-grid,
   .product-grid,
-  .testimonial-grid {
+  .testimonial-grid,
+  .policy-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -793,10 +858,15 @@ h1 {
   .category-grid,
   .product-grid,
   .testimonial-grid,
+  .policy-grid,
   .promo,
   .footer-grid,
   .hero-stats {
     grid-template-columns: 1fr;
+  }
+
+  .policy-inner {
+    padding: 1.5rem 1rem;
   }
 
   .hero {
