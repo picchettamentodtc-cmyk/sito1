@@ -8,6 +8,8 @@
       name="description"
       content="Mercurius Search: scopri la collezione moda. Cerca capi, accessori e scarpe."
     />
+    <link rel="icon" href="assets/logo.jpg" type="image/jpeg" />
+    <link rel="apple-touch-icon" href="assets/logo.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,12 +23,14 @@
 
     <header class="site-header">
       <div class="header-inner">
-        <a class="logo" href="#top">
-          <span class="logo-mark">M</span>
-          <span class="logo-text">
-            Mercurius
-            <small>Search</small>
-          </span>
+        <a class="logo" href="#top" aria-label="Mercurius Search — Home">
+          <img
+            class="logo-img"
+            src="assets/logo.jpg"
+            alt="Mercurius Search"
+            width="160"
+            height="160"
+          />
         </a>
 
         <nav class="main-nav" aria-label="Categorie">
@@ -142,10 +146,15 @@
     <footer class="site-footer">
       <div class="footer-grid">
         <div>
-          <p class="logo-text footer-brand">
-            Mercurius
-            <small>Search</small>
-          </p>
+          <a class="footer-logo" href="#top" aria-label="Mercurius Search — Home">
+            <img
+              class="logo-img logo-img--footer"
+              src="assets/logo.jpg"
+              alt="Mercurius Search"
+              width="160"
+              height="160"
+            />
+          </a>
           <p>Moda ricercata, ricerca precisa.</p>
         </div>
         <div>
