@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 640" role="img" aria-label="Maglietta Nike bianca">
+  <defs>
+    <linearGradient id="studio" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2a2622" />
+      <stop offset="100%" stop-color="#100e0c" />
+    </linearGradient>
+    <linearGradient id="cloth" x1="0.1" y1="0" x2="0.95" y2="1">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="48%" stop-color="#f3eee6" />
+      <stop offset="100%" stop-color="#d9d1c4" />
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-20%" width="160%" height="150%">
+      <feDropShadow dx="0" dy="22" stdDeviation="18" flood-color="#000" flood-opacity="0.45" />
+    </filter>
+  </defs>
+  <rect width="480" height="640" fill="url(#studio)" />
+  <ellipse cx="240" cy="548" rx="150" ry="16" fill="#000" opacity="0.4" />
+  <g filter="url(#shadow)">
+    <path
+      fill="url(#cloth)"
+      fill-rule="evenodd"
+      d="M168 108 C190 150 222 168 240 170 C258 168 290 150 312 108 L368 138 L438 214 L396 258 L346 206 L336 512 Q240 534 144 512 L134 206 L84 258 L42 214 L112 138 Z M190 116 C208 146 228 158 240 160 C252 158 272 146 290 116 C274 126 254 134 240 134 C226 134 206 126 190 116 Z"
+    />
+    <path d="M214 176 L248 176 L262 500 L198 500 Z" fill="#fff" opacity="0.45" />
+    <path d="M168 108 C190 150 222 168 240 170 C258 168 290 150 312 108" fill="none" stroke="#c9bfb2" stroke-width="8" />
+    <path fill="#111111" d="M236 292 C272 322 322 312 372 252 C326 290 284 316 234 286 Z" />
+  </g>
+</svg>
