@@ -72,6 +72,7 @@ window.SHOP = {
       stock: 18,
       badge: null,
       featured: false,
+      line: "performance",
       compat: ["zip50", "typhoon50"],
       lead: "Elemento in spugna doppia densità per la scatola filtro dei Piaggio Zip e Typhoon.",
       description:
@@ -93,6 +94,7 @@ window.SHOP = {
       stock: 7,
       badge: "Offerta",
       featured: true,
+      line: "performance",
       compat: ["zip50", "typhoon50", "sr50"],
       lead: "Cilindro in ghisa con pistone, fasce, spinotto e guarnizioni per motori Piaggio aria.",
       description:
@@ -115,6 +117,7 @@ window.SHOP = {
       stock: 11,
       badge: null,
       featured: false,
+      line: "performance",
       compat: ["zip50", "typhoon50", "sr50", "aerox50", "neos50"],
       lead: "Carburatore da 17,5 mm con vaschetta e getto principale da 75, già pronto da collegare.",
       description:
@@ -137,6 +140,7 @@ window.SHOP = {
       stock: 26,
       badge: "Offerta",
       featured: true,
+      line: "performance",
       compat: ["zip50", "liberty50", "lx50", "agility50", "like50"],
       lead: "Cinghia dentata con inserti in kevlar. Si cambia quando slitta in partenza o ogni 10.000 km.",
       description:
@@ -158,6 +162,7 @@ window.SHOP = {
       stock: 40,
       badge: null,
       featured: false,
+      line: "performance",
       compat: ["zip50", "typhoon50", "sr50", "aerox50", "neos50", "speedfight50"],
       lead: "Sei rulli da 6,5 g, misura 16×13 mm, per recuperare spunto senza smontare mezzo variatore.",
       description:
@@ -179,6 +184,7 @@ window.SHOP = {
       stock: 9,
       badge: null,
       featured: false,
+      line: "performance",
       compat: ["zip50", "typhoon50", "sr50"],
       lead: "Frizione completa con molle rinforzate per campane dei motori Piaggio aria.",
       description:
@@ -390,6 +396,7 @@ window.SHOP = {
       stock: 6,
       badge: null,
       featured: false,
+      line: "performance",
       compat: ["zip50", "typhoon50", "sr50"],
       lead: "Espansione silenziata con staffa e guarnizione collettore, per motori Piaggio aria.",
       description:

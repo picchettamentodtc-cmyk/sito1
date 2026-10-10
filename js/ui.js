@@ -44,6 +44,9 @@
       (badge ? '<span class="product-badge">' + esc(badge) + "</span>" : "") +
       "</a>" +
       '<div class="product-body">' +
+      (product.line === "performance"
+        ? '<a class="line-tag" href="catalogo.html?linea=performance">Top Performance</a>'
+        : "") +
       '<p class="product-cat">' +
       esc(category(product.category)) +
       " · " +

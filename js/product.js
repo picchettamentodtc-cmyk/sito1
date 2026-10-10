@@ -45,6 +45,9 @@
     window.PartArt.render(product.art) +
     "</div>" +
     "<div>" +
+    (product.line === "performance"
+      ? '<p><a class="line-tag" href="catalogo.html?linea=performance">Top Performance</a></p>'
+      : "") +
     '<p class="product-cat">' +
     window.ShopUI.esc(window.ShopUI.category(product.category)) +
     " · " +

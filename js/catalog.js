@@ -13,6 +13,7 @@
     modello: params.get("modello") || "all",
     sort: params.get("sort") || "consigliati",
     max: params.get("max") || "all",
+    linea: params.get("linea") === "performance" ? "performance" : "all",
   };
 
   const qInput = document.getElementById("catalog-q");
@@ -21,6 +22,8 @@
   const brandBox = document.getElementById("brand-filters");
   const modelBox = document.getElementById("model-filters");
   const priceBox = document.getElementById("price-filters");
+  const lineBox = document.getElementById("line-filters");
+  const lineBanner = document.getElementById("line-banner");
 
   function radio(name, value, label, checked) {
     return (
@@ -67,11 +70,17 @@
       ["over", "Oltre 50 €"],
     ];
     priceBox.innerHTML = prices.map((entry) => radio("max", entry[0], entry[1], state.max === entry[0])).join("");
+    if (lineBox) {
+      lineBox.innerHTML =
+        radio("linea", "all", "Tutte le linee", state.linea === "all") +
+        radio("linea", "performance", "Top Performance", state.linea === "performance");
+    }
     if (qInput) qInput.value = state.q;
     if (sortSelect) sortSelect.value = state.sort;
   }
 
   function matches(product) {
+    if (state.linea === "performance" && product.line !== "performance") return false;
     if (state.cat !== "all" && product.category !== state.cat) return false;
     if (state.marca !== "all") {
       const ids = window.SHOP.models.filter((model) => model.brand === state.marca).map((model) => model.id);
@@ -89,6 +98,7 @@
       product.lead,
       window.ShopUI.category(product.category),
       product.compat.map((id) => window.ShopUI.modelName(id)).join(" "),
+      product.line === "performance" ? "top performance" : "",
     ]
       .join(" ")
       .toLowerCase();
@@ -112,6 +122,7 @@
     if (state.modello !== "all") next.set("modello", state.modello);
     if (state.sort !== "consigliati") next.set("sort", state.sort);
     if (state.max !== "all") next.set("max", state.max);
+    if (state.linea !== "all") next.set("linea", state.linea);
     const qs = next.toString();
     history.replaceState(null, "", qs ? "catalogo.html?" + qs : "catalogo.html");
   }
@@ -121,7 +132,9 @@
     grid.innerHTML = items.map((product) => window.ShopUI.card(product)).join("");
     empty.hidden = items.length > 0;
     const extra = state.q ? " per “" + state.q + "”" : "";
-    meta.textContent = items.length === 1 ? "1 ricambio" + extra : items.length + " ricambi" + extra;
+    const lineLabel = state.linea === "performance" ? " Top Performance" : "";
+    meta.textContent = (items.length === 1 ? "1 ricambio" : items.length + " ricambi") + lineLabel + extra;
+    if (lineBanner) lineBanner.hidden = state.linea !== "performance";
     syncUrl();
   }
 
@@ -135,6 +148,7 @@
     }
     if (target.name === "modello") state.modello = target.value;
     if (target.name === "max") state.max = target.value;
+    if (target.name === "linea") state.linea = target.value;
     render();
   });
 
@@ -164,6 +178,7 @@
     state.marca = "all";
     state.modello = "all";
     state.max = "all";
+    state.linea = "all";
     state.sort = "consigliati";
     renderFilters();
     render();
