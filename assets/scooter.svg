@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 540" fill="none" role="img" aria-label="Scooter stilizzato">
+  <ellipse cx="380" cy="492" rx="270" ry="16" fill="#000" opacity=".35"/>
+  <circle cx="188" cy="418" r="86" fill="#0c0d0f" stroke="#3a4148" stroke-width="8"/>
+  <circle cx="188" cy="418" r="54" stroke="#d5dbe1" stroke-width="10"/>
+  <circle cx="188" cy="418" r="14" fill="#ff6a1a"/>
+  <circle cx="592" cy="426" r="72" fill="#0c0d0f" stroke="#3a4148" stroke-width="8"/>
+  <circle cx="592" cy="426" r="44" stroke="#d5dbe1" stroke-width="10"/>
+  <circle cx="592" cy="426" r="12" fill="#ff6a1a"/>
+  <path d="M118 392h150" stroke="#8e99a4" stroke-width="12" stroke-linecap="round"/>
+  <path d="M250 404h46" stroke="#5c656e" stroke-width="8" stroke-linecap="round"/>
+  <path d="M126 292c28-92 132-108 196-78l42 48-46 112-168 8c-28 0-40-28-24-90z" fill="#f4f1ea"/>
+  <path d="M154 318c48-28 92-18 112 22l-36 22-96-6c-8-14-4-28 20-38z" fill="#ff6a1a"/>
+  <path d="M214 236c58-34 150-30 196 22l-8 48-176 10-28-36c-6-16 0-32 16-44z" fill="#241c16"/>
+  <path d="M318 352h168l34 52H292l26-52z" fill="#d9d3c7"/>
+  <path d="M438 168c78-18 124 36 108 168l-78 48-46-78c-6-62-8-112 16-138z" fill="#f4f1ea"/>
+  <path d="M470 214c36-6 58 16 54 62l-46 8-22-28c-2-18 2-36 14-42z" fill="#ff6a1a"/>
+  <path d="M548 236l48 128" stroke="#c5ccd3" stroke-width="12" stroke-linecap="round"/>
+  <path d="M500 156h112" stroke="#17191c" stroke-width="14" stroke-linecap="round"/>
+  <circle cx="500" cy="156" r="11" fill="#ff6a1a"/>
+  <circle cx="612" cy="156" r="11" fill="#17191c"/>
+  <circle cx="560" cy="214" r="24" fill="#f5c542"/>
+  <circle cx="560" cy="214" r="12" fill="#fff6d0"/>
+  <path d="M498 142l-36-42" stroke="#17191c" stroke-width="7" stroke-linecap="round"/>
+  <ellipse cx="452" cy="92" rx="28" ry="16" fill="#d5dbe1" stroke="#8e99a4" stroke-width="3"/>
+  <path d="M176 332h52" stroke="#17191c" stroke-width="8" stroke-linecap="round" opacity=".55"/>
+  <text x="168" y="328" fill="#17191c" font-family="Arial Black, Arial, sans-serif" font-size="28">50</text>
+</svg>

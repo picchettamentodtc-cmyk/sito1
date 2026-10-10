@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carrello — Banco 50</title>
+    <meta name="description" content="Carrello Banco 50: modifica le quantità e vai al checkout dei ricambi per motorini." />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#contenuto">Vai al contenuto</a>
+    <header class="site-header">
+      <div class="topbar">
+        <p>Spedizione gratis da 79 €</p>
+        <p>Recesso 14 giorni</p>
+        <p>Garanzia legale 24 mesi</p>
+      </div>
+      <div class="header-inner">
+        <a class="logo" href="index.html" aria-label="Banco 50 — Home">
+          <span class="logo-mark">50</span>
+          <span class="logo-text"><strong>Banco 50</strong><small>Ricambi motorini</small></span>
+        </a>
+        <nav class="main-nav" aria-label="Navigazione principale">
+          <a href="catalogo.html">Catalogo</a>
+          <a href="index.html#categorie">Categorie</a>
+          <a href="contatti.html">Assistenza</a>
+          <a href="resi.html">Resi</a>
+        </nav>
+        <form class="header-search" action="catalogo.html" method="get" role="search">
+          <label class="visually-hidden" for="header-query">Cerca ricambi</label>
+          <input id="header-query" type="search" name="q" placeholder="Cerca candela, cinghia, Zip 50…" />
+          <button type="submit" aria-label="Cerca">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+              <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="1.8" />
+              <path d="M16.5 16.5 21 21" fill="none" stroke="currentColor" stroke-width="1.8" />
+            </svg>
+          </button>
+        </form>
+        <a class="cart-link" href="carrello.html" aria-current="page">
+          <span class="cart-word">Carrello</span>
+          <span class="cart-count" data-cart-count>0</span>
+        </a>
+        <button class="menu-toggle" type="button" aria-label="Apri menu" aria-expanded="false" aria-controls="mobile-nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <nav id="mobile-nav" class="mobile-nav" aria-label="Menu mobile" hidden>
+        <form class="mobile-search" action="catalogo.html" method="get" role="search">
+          <label class="visually-hidden" for="mobile-query">Cerca ricambi</label>
+          <input id="mobile-query" type="search" name="q" placeholder="Cerca un ricambio" />
+          <button type="submit">Cerca</button>
+        </form>
+        <a href="catalogo.html">Catalogo</a>
+        <a href="contatti.html">Assistenza</a>
+        <a href="resi.html">Resi</a>
+        <a class="mobile-cta" href="carrello.html">Apri il carrello</a>
+      </nav>
+    </header>
+    <main id="contenuto" class="page">
+      <header class="page-head">
+        <p class="eyebrow">Carrello</p>
+        <h1>I tuoi pezzi</h1>
+      </header>
+      <div class="cart-layout">
+        <div id="cart-list"></div>
+        <aside class="summary-card" id="cart-summary"></aside>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <div>
+          <a class="logo" href="index.html"><span class="logo-mark">50</span><span class="logo-text"><strong>Banco 50</strong><small>Ricambi motorini</small></span></a>
+          <p>Ricambi per motorini e scooter, scelti per modello.</p>
+        </div>
+        <div>
+          <h2>Servizio</h2>
+          <a href="resi.html">Resi e garanzia</a>
+          <a href="contatti.html">Assistenza</a>
+          <a href="catalogo.html">Catalogo</a>
+        </div>
+      </div>
+      <p class="copyright">© 2026 Banco 50. Prezzi IVA inclusa. Il checkout è dimostrativo e non addebita pagamenti.</p>
+    </footer>
+    <script src="js/products.js"></script>
+    <script src="js/art.js"></script>
+    <script src="js/store.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/cart-page.js"></script>
+  </body>
+</html>
