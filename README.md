@@ -4,7 +4,7 @@ Negozio statico di pezzi per motorini e scooter: catalogo con filtri, scheda pro
 
 Pagine:
 
-- `index.html` — home, ricerca per modello, categorie
+- `index.html` — home, ricerca per modello, sezione Top Performance, categorie
 - `catalogo.html` — filtri per categoria, marca, modello e prezzo
 - `prodotto.html?id=` — scheda, compatibilità e quantità
 - `carrello.html` — quantità e riepilogo
