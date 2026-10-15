@@ -1116,6 +1116,20 @@ h1 {
   padding: 1.2rem;
 }
 
+.checkout-form-wrap fieldset {
+  border: 1px solid var(--line);
+  margin: 1.1rem 0 0;
+  padding: 0.85rem 0.9rem 1rem;
+}
+
+.checkout-form-wrap legend {
+  padding: 0 0.35rem;
+  font-family: var(--display);
+  font-size: 1.3rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
 .policy-card h2,
 .contact-copy h2 {
   margin: 0 0 0.4rem;
@@ -1239,6 +1253,13 @@ h1 {
 }
 
 @media (min-width: 981px) {
+  .filter-drawer {
+    position: sticky;
+    top: 6.2rem;
+    max-height: calc(100vh - 7.5rem);
+    overflow: auto;
+  }
+
   .filter-drawer summary {
     display: none;
   }
