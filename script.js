@@ -79,6 +79,50 @@ const PRODUCTS = [
     badge: "nuovo",
     hue: "linear-gradient(160deg, #2a2418, #e8d5a3)",
   },
+  {
+    id: "ms-09",
+    name: "T-shirt Heavy Bianca",
+    category: "streetwear",
+    tags: ["t-shirt", "tee", "bianca", "cotone", "streetwear", "nuovo"],
+    price: 49,
+    oldPrice: null,
+    badge: "nuovo",
+    image: "assets/streetwear/tee-bianca.jpg",
+    hue: "linear-gradient(160deg, #f4efe6, #8a8074)",
+  },
+  {
+    id: "ms-10",
+    name: "T-shirt Heavy Nera",
+    category: "streetwear",
+    tags: ["t-shirt", "tee", "nera", "cotone", "streetwear"],
+    price: 49,
+    oldPrice: null,
+    badge: null,
+    image: "assets/streetwear/tee-nera.jpg",
+    hue: "linear-gradient(160deg, #111, #3a3a3a)",
+  },
+  {
+    id: "ms-11",
+    name: "T-shirt Boxy Sabbia",
+    category: "streetwear",
+    tags: ["t-shirt", "tee", "sabbia", "boxy", "oversize", "streetwear", "nuovo"],
+    price: 59,
+    oldPrice: null,
+    badge: "nuovo",
+    image: "assets/streetwear/tee-sabbia.jpg",
+    hue: "linear-gradient(160deg, #d9cbb6, #8a7560)",
+  },
+  {
+    id: "ms-12",
+    name: "T-shirt Crop Grafica",
+    category: "streetwear",
+    tags: ["t-shirt", "tee", "crop", "grafica", "nera", "streetwear"],
+    price: 55,
+    oldPrice: 69,
+    badge: "-20%",
+    image: "assets/streetwear/tee-crop.jpg",
+    hue: "linear-gradient(160deg, #1a1a1a, #c98b8b)",
+  },
 ];
 
 const euro = new Intl.NumberFormat("it-IT", {
@@ -94,12 +138,19 @@ const state = {
 };
 
 const grid = document.getElementById("product-grid");
+const streetGrid = document.getElementById("streetwear-grid");
+const streetSection = document.getElementById("streetwear");
+const productsSection = document.querySelector(".products");
 const empty = document.getElementById("empty-state");
 const meta = document.getElementById("results-meta");
 const cartBadge = document.querySelector("[data-cart-count]");
 const toast = document.getElementById("toast");
 const headerInput = document.getElementById("header-query");
 const heroInput = document.getElementById("hero-query");
+
+const params = new URLSearchParams(window.location.search);
+if (params.get("categoria")) state.category = params.get("categoria");
+if (params.get("q")) state.query = params.get("q");
 
 function matches(product) {
   const q = state.query.trim().toLowerCase();
@@ -118,34 +169,48 @@ function matches(product) {
   return hay.includes(q);
 }
 
-function render() {
-  const items = PRODUCTS.filter(matches);
-  grid.innerHTML = items
-    .map(
-      (p) => `
+function cardHtml(product) {
+  const photo = product.image
+    ? `<img src="${product.image}" alt="${product.name}" />`
+    : "";
+  return `
       <article class="product-card">
-        <div class="product-media" style="background:${p.hue}">
-          ${p.badge ? `<span class="product-badge">${p.badge}</span>` : ""}
+        <div class="product-media" style="background:${product.hue}">
+          ${photo}
+          ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ""}
         </div>
         <div class="product-body">
-          <p class="product-cat">${p.category}</p>
-          <h3>${p.name}</h3>
+          <p class="product-cat">${product.category}</p>
+          <h3>${product.name}</h3>
           <div class="price-row">
-            <span class="price">${euro.format(p.price)}</span>
-            ${p.oldPrice ? `<span class="price-old">${euro.format(p.oldPrice)}</span>` : ""}
+            <span class="price">${euro.format(product.price)}</span>
+            ${product.oldPrice ? `<span class="price-old">${euro.format(product.oldPrice)}</span>` : ""}
           </div>
-          <button class="add-btn" type="button" data-add="${p.id}">Aggiungi al carrello</button>
+          <button class="add-btn" type="button" data-add="${product.id}">Aggiungi al carrello</button>
         </div>
-      </article>`
-    )
-    .join("");
+      </article>`;
+}
 
-  empty.hidden = items.length > 0;
+function render() {
+  const items = PRODUCTS.filter(matches);
+  const street = items.filter((product) => product.category === "streetwear");
+  const rest = items.filter((product) => product.category !== "streetwear");
+
+  if (streetGrid) streetGrid.innerHTML = street.map(cardHtml).join("");
+  if (streetSection) streetSection.hidden = street.length === 0;
+  if (grid) grid.innerHTML = rest.map(cardHtml).join("");
+  if (productsSection) {
+    productsSection.hidden = items.length > 0 && rest.length === 0;
+  }
+
+  if (empty) empty.hidden = items.length > 0;
   const extra = state.query ? ` per “${state.query.trim()}”` : "";
-  if (items.length === 1) {
-    meta.textContent = `1 pezzo selezionato${extra}`;
-  } else {
-    meta.textContent = `${items.length} pezzi selezionati${extra}`;
+  if (meta) {
+    if (items.length === 1) {
+      meta.textContent = `1 pezzo selezionato${extra}`;
+    } else {
+      meta.textContent = `${items.length} pezzi selezionati${extra}`;
+    }
   }
 }
 
@@ -183,7 +248,10 @@ document.querySelectorAll(".header-search, .hero-search").forEach((form) => {
     event.preventDefault();
     const input = form.querySelector("input");
     applyQuery(input.value);
-    document.getElementById("prodotti").scrollIntoView({ behavior: "smooth" });
+    const street = document.getElementById("streetwear");
+    const catalog = document.getElementById("prodotti");
+    const target = street && !street.hidden ? street : catalog;
+    target?.scrollIntoView({ behavior: "smooth" });
   });
 });
 
@@ -195,9 +263,15 @@ document.querySelectorAll("[data-nav-category]").forEach((link) => {
   link.addEventListener("click", () => setCategory(link.dataset.navCategory));
 });
 
-grid.addEventListener("click", (event) => {
+document.addEventListener("click", (event) => {
   const btn = event.target.closest("[data-add]");
   if (btn) addToCart(btn.dataset.add);
 });
 
-render();
+if (state.query) applyQuery(state.query);
+else render();
+
+if (state.category !== "all") setCategory(state.category);
+if (state.category === "streetwear") {
+  document.getElementById("streetwear")?.scrollIntoView();
+}
