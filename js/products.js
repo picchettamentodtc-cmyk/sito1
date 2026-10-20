@@ -1,467 +1,326 @@
-window.SHOP = {
-  freeShippingFrom: 79,
-  shipping: { standard: 6.9, express: 12.9 },
-  codFee: 3,
-  categories: [
-    { id: "motore", label: "Motore", text: "Cilindri, carburatori, candele e filtri aria." },
-    { id: "trasmissione", label: "Trasmissione", text: "Cinghie, rulli, frizioni e variatori." },
-    { id: "freni", label: "Freni", text: "Pastiglie, dischi e leve pronti da montare." },
-    { id: "carrozzeria", label: "Carrozzeria", text: "Specchi, frecce, selle e pedane." },
-    { id: "pneumatici", label: "Pneumatici", text: "Gomme da scooter nelle misure più usate." },
-    { id: "elettrico", label: "Elettrico", text: "Batterie, lampade e statori." },
-    { id: "manutenzione", label: "Manutenzione", text: "Olio, kit tagliando e consumo officina." },
-  ],
-  brands: [
-    { id: "piaggio", label: "Piaggio" },
-    { id: "vespa", label: "Vespa" },
-    { id: "honda", label: "Honda" },
-    { id: "yamaha", label: "Yamaha" },
-    { id: "aprilia", label: "Aprilia" },
-    { id: "kymco", label: "Kymco" },
-    { id: "peugeot", label: "Peugeot" },
-  ],
-  models: [
-    { id: "zip50", brand: "piaggio", label: "Zip 50" },
-    { id: "liberty50", brand: "piaggio", label: "Liberty 50" },
-    { id: "typhoon50", brand: "piaggio", label: "Typhoon 50" },
-    { id: "lx50", brand: "vespa", label: "LX 50" },
-    { id: "primavera50", brand: "vespa", label: "Primavera 50" },
-    { id: "sprint125", brand: "vespa", label: "Sprint 125" },
-    { id: "sh125", brand: "honda", label: "SH 125" },
-    { id: "vision110", brand: "honda", label: "Vision 110" },
-    { id: "dio50", brand: "honda", label: "Dio 50" },
-    { id: "aerox50", brand: "yamaha", label: "Aerox 50" },
-    { id: "neos50", brand: "yamaha", label: "Neo's 50" },
-    { id: "sr50", brand: "aprilia", label: "SR 50" },
-    { id: "scarabeo50", brand: "aprilia", label: "Scarabeo 50" },
-    { id: "agility50", brand: "kymco", label: "Agility 50" },
-    { id: "like50", brand: "kymco", label: "Like 50" },
-    { id: "speedfight50", brand: "peugeot", label: "Speedfight 50" },
-  ],
-  products: [
-    {
-      id: "candela-c7",
-      sku: "B50-CAN-C7",
-      name: "Candela C7HSA",
-      art: "candela",
-      category: "motore",
-      price: 6.9,
-      oldPrice: null,
-      stock: 32,
-      badge: "Più venduta",
-      featured: true,
-      compat: ["zip50", "typhoon50", "lx50", "sr50", "scarabeo50", "aerox50", "neos50", "agility50", "speedfight50", "dio50"],
-      lead: "Candela a filetto corto per motorini 2 tempi. È il ricambio che si cambia a ogni tagliando.",
-      description:
-        "Elettrodo centrale in nichel e isolatore ceramico. Sostituiscila se il motore fatica a partire a freddo, se la candela è nera di olio o se ha superato i 5.000 km. Coppia di serraggio indicativa 12 Nm: non forzare il filetto sulla testa.",
-      specs: [
-        ["Tipo", "C7HSA"],
-        ["Filetto", "Corto"],
-        ["Grado termico", "7"],
-        ["Impiego", "Scooter e ciclomotori 2T"],
-      ],
-    },
-    {
-      id: "filtro-aria-zip",
-      sku: "B50-FIL-ZIP",
-      name: "Filtro aria sport Zip",
-      art: "filtro",
-      category: "motore",
-      price: 14.5,
-      oldPrice: null,
-      stock: 18,
-      badge: null,
-      featured: false,
-      compat: ["zip50", "typhoon50"],
-      lead: "Elemento in spugna doppia densità per la scatola filtro dei Piaggio Zip e Typhoon.",
-      description:
-        "Si lava con detergente per filtri, si lascia asciugare e si unge leggermente prima di rimontarlo. Un filtro intasato smagrisce la carburazione e fa scaldare il motore.",
-      specs: [
-        ["Materiale", "Spugna doppia densità"],
-        ["Scatola", "Filtro originale Zip / Typhoon"],
-        ["Manutenzione", "Lavabile"],
-      ],
-    },
-    {
-      id: "kit-cilindro-70",
-      sku: "B50-CIL-70",
-      name: "Kit cilindro 70 cc in ghisa",
-      art: "cilindro",
-      category: "motore",
-      price: 89,
-      oldPrice: 109,
-      stock: 7,
-      badge: "Offerta",
-      featured: true,
-      compat: ["zip50", "typhoon50", "sr50"],
-      lead: "Cilindro in ghisa con pistone, fasce, spinotto e guarnizioni per motori Piaggio aria.",
-      description:
-        "Kit di aumento cilindrata per Zip 50, Typhoon 50 e Aprilia SR 50 con motore Piaggio raffreddato ad aria. In confezione: cilindro, pistone, fasce, spinotto, clip e serie guarnizioni. L’uso su strada può richiedere l’aggiornamento del libretto: verifica la conformità del veicolo prima di circolare.",
-      specs: [
-        ["Cilindrata", "70 cc"],
-        ["Materiale", "Ghisa"],
-        ["Raffreddamento", "Aria"],
-        ["Contenuto", "Cilindro, pistone, fasce, guarnizioni"],
-      ],
-    },
-    {
-      id: "carburatore-175",
-      sku: "B50-CRB-175",
-      name: "Carburatore 17,5 mm",
-      art: "carburatore",
-      category: "motore",
-      price: 42,
-      oldPrice: null,
-      stock: 11,
-      badge: null,
-      featured: false,
-      compat: ["zip50", "typhoon50", "sr50", "aerox50", "neos50"],
-      lead: "Carburatore da 17,5 mm con vaschetta e getto principale da 75, già pronto da collegare.",
-      description:
-        "Corpo in alluminio, spillo conico e vite aria. Controlla che il collettore del tuo motore abbia il fissaggio a morsetto da 24 mm. Dopo il montaggio regola il minimo a motore caldo.",
-      specs: [
-        ["Diffusore", "17,5 mm"],
-        ["Getto principale", "75"],
-        ["Attacco", "Morsetto"],
-        ["Comando", "A filo"],
-      ],
-    },
-    {
-      id: "cinghia-rinforzata",
-      sku: "B50-CING-01",
-      name: "Cinghia di trasmissione rinforzata",
-      art: "cinghia",
-      category: "trasmissione",
-      price: 18.9,
-      oldPrice: 24,
-      stock: 26,
-      badge: "Offerta",
-      featured: true,
-      compat: ["zip50", "liberty50", "lx50", "agility50", "like50"],
-      lead: "Cinghia dentata con inserti in kevlar. Si cambia quando slitta in partenza o ogni 10.000 km.",
-      description:
-        "Larghezza e sviluppo compatibili con i gruppi trasmissione dei modelli in scheda. Sostituiscila insieme ai rulli se senti vibrazioni o un buco in accelerazione.",
-      specs: [
-        ["Inserto", "Kevlar"],
-        ["Intervallo consigliato", "10.000 km"],
-        ["Sintomo di usura", "Slittamento in partenza"],
-      ],
-    },
-    {
-      id: "rulli-16x13",
-      sku: "B50-RUL-16",
-      name: "Kit rulli variatore 16×13",
-      art: "rulli",
-      category: "trasmissione",
-      price: 12.5,
-      oldPrice: null,
-      stock: 40,
-      badge: null,
-      featured: false,
-      compat: ["zip50", "typhoon50", "sr50", "aerox50", "neos50", "speedfight50"],
-      lead: "Sei rulli da 6,5 g, misura 16×13 mm, per recuperare spunto senza smontare mezzo variatore.",
-      description:
-        "I rulli consumati diventano sfaccettati e fanno vibrare il gruppo. Questo set da 6,5 grammi è la grammatura di partenza più usata sui 50 cc 2 tempi in elenco.",
-      specs: [
-        ["Misura", "16 × 13 mm"],
-        ["Peso", "6,5 g"],
-        ["Pezzi", "6"],
-      ],
-    },
-    {
-      id: "frizione-3masse",
-      sku: "B50-FRI-3M",
-      name: "Frizione a 3 masse",
-      art: "frizione",
-      category: "trasmissione",
-      price: 34,
-      oldPrice: null,
-      stock: 9,
-      badge: null,
-      featured: false,
-      compat: ["zip50", "typhoon50", "sr50"],
-      lead: "Frizione completa con molle rinforzate per campane dei motori Piaggio aria.",
-      description:
-        "Le masse nuove attaccano in modo più pulito e riducono lo strappo da fermo. Controlla anche la campana: se è ovalizzata va sostituita a parte.",
-      specs: [
-        ["Masse", "3"],
-        ["Molle", "Rinforzate"],
-        ["Campana", "Non inclusa"],
-      ],
-    },
-    {
-      id: "pastiglie-ant",
-      sku: "B50-PST-01",
-      name: "Pastiglie freno anteriori",
-      art: "pastiglie",
-      category: "freni",
-      price: 11.9,
-      oldPrice: null,
-      stock: 28,
-      badge: "Più venduta",
-      featured: true,
-      compat: ["sh125", "vision110", "sprint125", "liberty50", "primavera50"],
-      lead: "Coppia di pastiglie sinterizzate per pinza anteriore a due pistoncini.",
-      description:
-        "Compound che lavora bene anche con la pioggia. Dopo il montaggio fai due frenate progressive per assestarle e controlla il livello dell’olio freni.",
-      specs: [
-        ["Assale", "Anteriore"],
-        ["Mescole", "Sinterizzata"],
-        ["Pinza", "2 pistoncini"],
-      ],
-    },
-    {
-      id: "disco-190",
-      sku: "B50-DSC-190",
-      name: "Disco freno 190 mm",
-      art: "disco",
-      category: "freni",
-      price: 28,
-      oldPrice: null,
-      stock: 8,
-      badge: null,
-      featured: false,
-      compat: ["sh125", "sprint125", "liberty50"],
-      lead: "Disco fisso da 190 mm, spessore 4 mm, con foratura per il raffreddamento.",
-      description:
-        "Sostituiscilo se lo spessore è sotto il minimo segnato sul bordo, se è blu da surriscaldamento o se senti una pulsazione alla leva. Viti di fissaggio non incluse.",
-      specs: [
-        ["Diametro", "190 mm"],
-        ["Spessore", "4 mm"],
-        ["Tipo", "Fisso, forato"],
-      ],
-    },
-    {
-      id: "specchio-dx",
-      sku: "B50-SPC-DX",
-      name: "Specchio retrovisore destro",
-      art: "specchio",
-      category: "carrozzeria",
-      price: 9.9,
-      oldPrice: null,
-      stock: 22,
-      badge: null,
-      featured: false,
-      compat: ["zip50", "liberty50", "lx50", "agility50", "like50", "scarabeo50", "vision110"],
-      lead: "Specchio destro con snodo e filetto destro M8, stelo corto da scooter.",
-      description:
-        "Vetro convesso per allargare l’angolo. Se il tuo manubrio ha il filetto sinistro sul lato destro, controlla la scheda compatibilità prima dell’ordine.",
-      specs: [
-        ["Lato", "Destro"],
-        ["Filetto", "M8 destro"],
-        ["Vetro", "Convesso"],
-      ],
-    },
-    {
-      id: "frecce-led",
-      sku: "B50-FRC-LED",
-      name: "Coppia frecce a LED",
-      art: "frecce",
-      category: "carrozzeria",
-      price: 16.5,
-      oldPrice: null,
-      stock: 15,
-      badge: "Nuovo",
-      featured: true,
-      compat: ["zip50", "typhoon50", "aerox50", "sr50", "speedfight50", "dio50", "agility50"],
-      lead: "Due frecce anteriori a LED, luce arancio e attacco a due fili.",
-      description:
-        "Assorbimento basso: sulla maggior parte degli impianti 12V non serve la resistenza, ma se la freccia lampeggia troppo veloce va aggiunta. Tasselli e viti inclusi.",
-      specs: [
-        ["Luce", "LED arancio"],
-        ["Tensione", "12 V"],
-        ["Pezzi", "2"],
-        ["Cablaggio", "2 fili"],
-      ],
-    },
-    {
-      id: "gomma-120",
-      sku: "B50-PNM-120",
-      name: "Pneumatico 120/70-12",
-      art: "gomma",
-      category: "pneumatici",
-      price: 32,
-      oldPrice: null,
-      stock: 14,
-      badge: null,
-      featured: true,
-      compat: ["liberty50", "lx50", "primavera50", "sh125", "vision110", "like50"],
-      lead: "Gomma da scooter 120/70-12, mescola per asfalto bagnato e disegno a frecce.",
-      description:
-        "Indice di carico e velocità adatti all’uso cittadino. Montaggio e equilibratura vanno fatti in officina: non è inclusa la valvola nuova, ma è meglio cambiarla insieme alla gomma.",
-      specs: [
-        ["Misura", "120/70-12"],
-        ["Posizione tipica", "Anteriore o posteriore, secondo libretto"],
-        ["Stagione", "Strada"],
-      ],
-    },
-    {
-      id: "gomma-130",
-      sku: "B50-PNM-130",
-      name: "Pneumatico 130/70-12",
-      art: "gomma-larga",
-      category: "pneumatici",
-      price: 36,
-      oldPrice: null,
-      stock: 10,
-      badge: null,
-      featured: false,
-      compat: ["sh125", "sprint125", "primavera50"],
-      lead: "Posteriore 130/70-12 per scooter medi che montano il canale largo.",
-      description:
-        "Controlla la misura stampata sul fianco della gomma che smonti e sul libretto. Una sezione diversa cambia anche il comportamento del freno posteriore.",
-      specs: [
-        ["Misura", "130/70-12"],
-        ["Posizione tipica", "Posteriore"],
-        ["Stagione", "Strada"],
-      ],
-    },
-    {
-      id: "batteria-12v",
-      sku: "B50-BAT-5",
-      name: "Batteria 12V 5Ah",
-      art: "batteria",
-      category: "elettrico",
-      price: 29.9,
-      oldPrice: null,
-      stock: 16,
-      badge: null,
-      featured: true,
-      compat: ["liberty50", "lx50", "sh125", "vision110", "sprint125", "scarabeo50", "like50", "agility50"],
-      lead: "Batteria ermetica 12V 5Ah con poli a vite, pronta e già attivata.",
-      description:
-        "Sostituisce le batterie YTX5L-BS più diffuse sugli scooter in elenco. Fissala con la cinghia originale e metti il polo positivo per primo. Non va ricaricata prima del montaggio.",
-      specs: [
-        ["Tensione", "12 V"],
-        ["Capacità", "5 Ah"],
-        ["Tecnologia", "Ermetica, attivata"],
-        ["Poli", "A vite"],
-      ],
-    },
-    {
-      id: "olio-2t",
-      sku: "B50-OLI-2T",
-      name: "Olio motore 2T sintetico 1 L",
-      art: "olio",
-      category: "manutenzione",
-      price: 13.9,
-      oldPrice: null,
-      stock: 30,
-      badge: null,
-      featured: false,
-      compat: ["zip50", "typhoon50", "aerox50", "neos50", "sr50", "dio50", "speedfight50"],
-      lead: "Olio sintetico per miscelatori automatici e miscela al 2%, basso fumo.",
-      description:
-        "Adatto ai motorini 2 tempi con pompa dell’olio o con miscela preparata. Non usarlo nei motori 4 tempi: per quelli serve un olio SAE dedicato.",
-      specs: [
-        ["Base", "Sintetica"],
-        ["Formato", "1 L"],
-        ["Impiego", "Miscelatore o miscela 2%"],
-      ],
-    },
-    {
-      id: "kit-tagliando",
-      sku: "B50-KIT-ZIP",
-      name: "Kit tagliando Zip",
-      art: "kit",
-      category: "manutenzione",
-      price: 34.9,
-      oldPrice: 39.9,
-      stock: 12,
-      badge: "Kit",
-      featured: true,
-      compat: ["zip50", "typhoon50"],
-      lead: "Candela, filtro aria e cinghia in una sola scatola per il tagliando dei Piaggio Zip e Typhoon.",
-      description:
-        "Il kit copre i tre ricambi che si sostituiscono insieme quando il motorino ha perso spunto. I rulli, se sfaccettati, vanno presi a parte.",
-      specs: [
-        ["Contenuto", "Candela C7HSA, filtro aria, cinghia"],
-        ["Modelli", "Zip 50 e Typhoon 50"],
-      ],
-    },
-    {
-      id: "marmitta-sport",
-      sku: "B50-MAR-SP",
-      name: "Marmitta sport silenziata",
-      art: "marmitta",
-      category: "motore",
-      price: 74,
-      oldPrice: null,
-      stock: 6,
-      badge: null,
-      featured: false,
-      compat: ["zip50", "typhoon50", "sr50"],
-      lead: "Espansione silenziata con staffa e guarnizione collettore, per motori Piaggio aria.",
-      description:
-        "Corpo in acciaio verniciato nero e silent block di fissaggio. È un ricambio aftermarket: prima dell’uso su strada verifica che sia adatta al tuo mezzo e alla normativa. Collettore, molle e guarnizione sono inclusi.",
-      specs: [
-        ["Materiale", "Acciaio"],
-        ["Finitura", "Nera"],
-        ["Incluso", "Guarnizione, molle, staffa"],
-      ],
-    },
-    {
-      id: "sella-zip",
-      sku: "B50-SEL-ZIP",
-      name: "Sella sport nera",
-      art: "sella",
-      category: "carrozzeria",
-      price: 54,
-      oldPrice: null,
-      stock: 5,
-      badge: "Ultimi pezzi",
-      featured: false,
-      compat: ["zip50"],
-      lead: "Sella monoposto con copertura antigraffio e gancio serratura del Piaggio Zip 50.",
-      description:
-        "Base in plastica rigida e imbottitura più densa di quella originale consumata. Le cerniere del vano sottosella restano quelle del veicolo.",
-      specs: [
-        ["Posti", "1"],
-        ["Colore", "Nero"],
-        ["Fissaggio", "Gancio Zip 50"],
-      ],
-    },
-    {
-      id: "statore-aerox",
-      sku: "B50-STA-AER",
-      name: "Statore Aerox / Neo's",
-      art: "statore",
-      category: "elettrico",
-      price: 46,
-      oldPrice: null,
-      stock: 0,
-      badge: null,
-      featured: false,
-      compat: ["aerox50", "neos50"],
-      lead: "Statore completo con pick-up per Yamaha Aerox 50 e Neo's 50.",
-      description:
-        "Si sostituisce quando la luce abbassa di colpo o la scintilla sparisce a caldo. Al momento è esaurito: scrivici se vuoi essere avvisato al rientro.",
-      specs: [
-        ["Tipo", "Statore con pick-up"],
-        ["Modelli", "Aerox 50, Neo's 50"],
-        ["Connettore", "Originale"],
-      ],
-    },
-    {
-      id: "leva-freno",
-      sku: "B50-LEV-SX",
-      name: "Leva freno sinistra",
-      art: "leva",
-      category: "freni",
-      price: 8.5,
-      oldPrice: null,
-      stock: 21,
-      badge: null,
-      featured: false,
-      compat: ["zip50", "typhoon50", "aerox50", "sr50", "agility50", "speedfight50", "dio50"],
-      lead: "Leva sinistra in alluminio per comando freno posteriore a filo, snodo standard.",
-      description:
-        "Sostituisce la leva piegata dopo una caduta. Vite e registri del cavo restano quelli già sul manubrio. Lato destro, pompa freno, non è compatibile con questa leva.",
-      specs: [
-        ["Lato", "Sinistro"],
-        ["Comando", "A filo"],
-        ["Materiale", "Alluminio"],
-      ],
-    },
-  ],
-};
+export const FREE_SHIPPING_FROM = 180;
+
+const nero = { id: "nero", name: "Nero", hex: "#161616" };
+const osso = { id: "osso", name: "Osso", hex: "#e6e0d4" };
+const argento = { id: "argento", name: "Argento", hex: "#b7bcc4" };
+const antracite = { id: "antracite", name: "Antracite", hex: "#3a3d42" };
+const sabbia = { id: "sabbia", name: "Sabbia", hex: "#cbbba4" };
+const avorio = { id: "avorio", name: "Avorio", hex: "#f4efe6" };
+
+export const categoryOrder = [
+  "Cappotti",
+  "Giacche",
+  "Felpe",
+  "Maglie",
+  "Camicie",
+  "T-shirt",
+  "Pantaloni",
+  "Gonne",
+  "Abiti",
+  "Vestiti da sposa",
+  "Profumi",
+];
+
+export const products = [
+  {
+    id: "cappotto-ombra",
+    name: "Cappotto Ombra",
+    price: 680,
+    category: "Cappotti",
+    colors: [nero],
+    sizes: ["S", "M", "L", "XL"],
+    image: "assets/products/cappotto-ombra.jpg",
+    featured: true,
+    tag: "Novità",
+    description:
+      "Cappotto in lana vergine, spalla caduta e lunghezza al ginocchio. Due bottoni, volume largo, peso da città.",
+    details: ["100% lana vergine", "Fodera in cupro", "Due bottoni", "Vestibilità ampia"],
+  },
+  {
+    id: "felpa-mass",
+    name: "Felpa Mass",
+    price: 180,
+    category: "Felpe",
+    colors: [osso],
+    sizes: ["XS", "S", "M", "L", "XL"],
+    image: "assets/products/felpa-mass.jpg",
+    featured: true,
+    tag: "Essenziale",
+    description: "Felpa in cotone pesante, cappuccio, tascone e spalla scesa. Il peso è quello della strada, il colore è osso.",
+    details: ["Cotone 460 g", "Cappuccio doppio", "Vestibilità boxy", "Orlo a costine"],
+  },
+  {
+    id: "camicia-lamina",
+    name: "Camicia Lamina",
+    price: 230,
+    category: "Camicie",
+    colors: [argento],
+    sizes: ["XS", "S", "M"],
+    image: "assets/products/camicia-lamina.jpg",
+    featured: false,
+    tag: "",
+    description: "Camicia in seta opaca color argento. Colletto aperto, bottoni tono su tono, manica morbida.",
+    details: ["Seta opaca", "Bottoni coperti dal tono", "Vestibilità rilassata", "Lavare a secco"],
+  },
+  {
+    id: "pantalone-asse",
+    name: "Pantalone Asse",
+    price: 220,
+    category: "Pantaloni",
+    colors: [antracite],
+    sizes: ["S", "M", "L", "XL"],
+    image: "assets/products/pantalone-asse.jpg",
+    featured: false,
+    tag: "",
+    description: "Pantalone in lana antracite, vita alta, pince e gamba larga. Cade dritto sulla scarpa.",
+    details: ["Lana stretch", "Pince", "Gamba larga", "Vita alta"],
+  },
+  {
+    id: "blazer-quadro",
+    name: "Blazer Quadro",
+    price: 540,
+    category: "Giacche",
+    colors: [nero],
+    sizes: ["XS", "S", "M", "L"],
+    image: "assets/products/blazer-quadro.jpg",
+    featured: true,
+    tag: "Icona",
+    description: "Blazer nero con spalla morbida e due bottoni. La giacca da mettere sulla felpa o sul dolcevita.",
+    details: ["Lana e mohair", "Spalla morbida", "Due bottoni", "Tasche a filetto"],
+  },
+  {
+    id: "tee-modulo",
+    name: "T-shirt Modulo",
+    price: 85,
+    category: "T-shirt",
+    colors: [osso],
+    sizes: ["XS", "S", "M", "L", "XL"],
+    image: "assets/products/tee-modulo.jpg",
+    featured: false,
+    tag: "",
+    description: "T-shirt boxy in jersey compatto color osso. Manica scesa, collo basso, orlo dritto.",
+    details: ["Jersey compatto", "Manica scesa", "Orlo dritto", "Collo a costina"],
+  },
+  {
+    id: "bomber-velo",
+    name: "Bomber Velo",
+    price: 380,
+    category: "Giacche",
+    colors: [nero],
+    sizes: ["M", "L", "XL"],
+    image: "assets/products/bomber-velo.jpg",
+    featured: false,
+    tag: "",
+    description: "Bomber in nylon opaco, zip a vista e costine. Il volume è corto, il nero è pieno.",
+    details: ["Nylon opaco", "Zip metallica", "Costine", "Tasche oblique"],
+  },
+  {
+    id: "dolcevita-nord",
+    name: "Dolcevita Nord",
+    price: 190,
+    category: "Maglie",
+    colors: [argento],
+    sizes: ["XS", "S", "M", "L"],
+    image: "assets/products/dolcevita-nord.jpg",
+    featured: false,
+    tag: "",
+    description: "Dolcevita in merino extrafine color argento. Collo alto, spalla rilassata, costine corte.",
+    details: ["Merino extrafine", "Collo alto", "Costine", "Lavare a mano"],
+  },
+  {
+    id: "gonna-stecca",
+    name: "Gonna Stecca",
+    price: 260,
+    category: "Gonne",
+    colors: [sabbia],
+    sizes: ["XS", "S", "M"],
+    image: "assets/products/gonna-stecca.jpg",
+    featured: false,
+    tag: "",
+    description: "Gonna midi color sabbia, vita alta e plissé fitto. Si muove come una maglia, resta in piega.",
+    details: ["Maglia plissettata", "Vita alta", "Lunghezza midi", "Elastico interno"],
+  },
+  {
+    id: "abito-colonna",
+    name: "Abito Colonna",
+    price: 490,
+    category: "Abiti",
+    colors: [nero],
+    sizes: ["XS", "S", "M", "L"],
+    image: "assets/products/abito-colonna.jpg",
+    featured: true,
+    tag: "Novità",
+    description: "Abito colonna in crepe nero. Spalline sottili, scollo morbido, lunghezza alla caviglia.",
+    details: ["Crepe fluido", "Spalline sottili", "Fodera leggera", "Lunghezza caviglia"],
+  },
+  {
+    id: "estratto-ombra",
+    name: "Estratto Ombra",
+    price: 148,
+    category: "Profumi",
+    colors: [nero],
+    sizes: ["30 ml", "50 ml", "100 ml"],
+    image: "assets/products/estratto-ombra.svg",
+    featured: false,
+    tag: "Novità",
+    description: "Profumo estratto. Legno bruciato, pepe e iris. Il nero della casa, in flacone.",
+    details: ["Famiglia: legnosa", "Testa: pepe", "Cuore: iris", "Fondo: cedro e fumo"],
+  },
+  {
+    id: "vapore-osso",
+    name: "Vapore Osso",
+    price: 118,
+    category: "Profumi",
+    colors: [osso],
+    sizes: ["30 ml", "50 ml"],
+    image: "assets/products/vapore-osso.svg",
+    featured: false,
+    tag: "",
+    description: "Profumo leggero. Muschio bianco, tè e pelle pulita. Resta vicino alla pelle.",
+    details: ["Famiglia: muschiata", "Testa: tè", "Cuore: muschio", "Fondo: pelle"],
+  },
+  {
+    id: "freddo-argento",
+    name: "Freddo Argento",
+    price: 162,
+    category: "Profumi",
+    colors: [argento],
+    sizes: ["50 ml", "100 ml"],
+    image: "assets/products/freddo-argento.svg",
+    featured: false,
+    tag: "",
+    description: "Profumo metallico e freddo. Aldeidi, violetta e ambra grigia. Una catena, non un fiore.",
+    details: ["Famiglia: aldeidata", "Testa: aldeidi", "Cuore: violetta", "Fondo: ambra grigia"],
+  },
+  {
+    id: "abito-velato",
+    name: "Abito Velato",
+    price: 2800,
+    category: "Vestiti da sposa",
+    colors: [avorio],
+    sizes: ["S", "M", "L"],
+    image: "assets/products/abito-velato.svg",
+    featured: false,
+    tag: "Sposa",
+    description: "Abito da sposa in crepe avorio con velo staccabile. Linea a colonna, spalline sottili, niente ricamo.",
+    details: ["Crepe avorio", "Velo staccabile", "Chiusura nascosta", "Non modificabile dopo la prova"],
+  },
+  {
+    id: "abito-linea",
+    name: "Abito Linea",
+    price: 2400,
+    category: "Vestiti da sposa",
+    colors: [avorio],
+    sizes: ["XS", "S", "M", "L"],
+    image: "assets/products/abito-linea.svg",
+    featured: false,
+    tag: "",
+    description: "Abito da sposa minimale, scollo a barca e gonna dritta. Avorio caldo, nessun strascico.",
+    details: ["Mikado leggero", "Scollo a barca", "Senza strascico", "Fodera in seta"],
+  },
+  {
+    id: "abito-architettura",
+    name: "Abito Architettura",
+    price: 3400,
+    category: "Vestiti da sposa",
+    colors: [avorio],
+    sizes: ["S", "M", "L", "XL"],
+    image: "assets/products/abito-architettura.svg",
+    featured: false,
+    tag: "",
+    description: "Abito da sposa con gonna ampia e corpetto strutturato. Il volume è architettonico, il colore resta avorio.",
+    details: ["Corpetto strutturato", "Gonna ampia", "Bottoni coperti", "Prova in atelier su appuntamento"],
+  },
+];
+
+export function getProduct(id) {
+  return products.find((product) => product.id === id) || null;
+}
+
+export function formatPrice(value) {
+  const hasCents = Math.round(value * 100) % 100 !== 0;
+  return new Intl.NumberFormat("it-IT", {
+    style: "currency",
+    currency: "EUR",
+    minimumFractionDigits: hasCents ? 2 : 0,
+    maximumFractionDigits: hasCents ? 2 : 0,
+  }).format(value);
+}
+
+export function priceBounds() {
+  const prices = products.map((product) => product.price);
+  return { min: Math.min(...prices), max: Math.max(...prices) };
+}
+
+export function categories() {
+  return categoryOrder.filter((category) => products.some((product) => product.category === category));
+}
+
+export function apparelSizes() {
+  const order = ["XS", "S", "M", "L", "XL"];
+  const present = new Set(
+    products.filter((product) => product.category !== "Profumi").flatMap((product) => product.sizes)
+  );
+  return order.filter((size) => present.has(size));
+}
+
+export function fragranceFormats() {
+  const order = ["30 ml", "50 ml", "100 ml"];
+  const present = new Set(
+    products.filter((product) => product.category === "Profumi").flatMap((product) => product.sizes)
+  );
+  return order.filter((size) => present.has(size));
+}
+
+export function colorOptions() {
+  const list = [];
+  products.forEach((product) => {
+    product.colors.forEach((color) => {
+      if (!list.some((item) => item.id === color.id)) list.push(color);
+    });
+  });
+  return list;
+}
+
+export function variantLabel(product) {
+  return product.category === "Profumi" ? "Formato" : "Taglia";
+}
+
+export function filterProducts(state) {
+  const bounds = priceBounds();
+  const min = Number.isFinite(state.min) ? state.min : bounds.min;
+  const max = Number.isFinite(state.max) ? state.max : bounds.max;
+  const query = (state.q || "").trim().toLowerCase();
+  const list = products.filter((product) => {
+    if (state.cats?.length && !state.cats.includes(product.category)) return false;
+    if (state.colors?.length && !product.colors.some((color) => state.colors.includes(color.id))) return false;
+    if (product.price < min || product.price > max) return false;
+    const sizeOn = Boolean(state.sizes?.length);
+    const formatOn = Boolean(state.formats?.length);
+    const sizeOk = product.sizes.some((size) => state.sizes?.includes(size));
+    const formatOk = product.sizes.some((size) => state.formats?.includes(size));
+    if (sizeOn && formatOn) {
+      if (!sizeOk && !formatOk) return false;
+    } else if (sizeOn && !sizeOk) return false;
+    else if (formatOn && !formatOk) return false;
+    if (query) {
+      const haystack = [
+        product.name,
+        product.category,
+        product.description,
+        ...product.details,
+        ...product.colors.map((color) => color.name),
+        ...product.sizes,
+      ]
+        .join(" ")
+        .toLowerCase();
+      if (!haystack.includes(query)) return false;
+    }
+    return true;
+  });
+  const sorted = [...list];
+  if (state.sort === "prezzo-asc") sorted.sort((a, b) => a.price - b.price || a.name.localeCompare(b.name, "it"));
+  else if (state.sort === "prezzo-desc") sorted.sort((a, b) => b.price - a.price || a.name.localeCompare(b.name, "it"));
+  else if (state.sort === "nome") sorted.sort((a, b) => a.name.localeCompare(b.name, "it"));
+  return sorted;
+}

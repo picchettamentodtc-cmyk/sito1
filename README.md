@@ -1,19 +1,20 @@
-# Banco 50 — Ricambi per motorini
+# Mercury Search
 
-Negozio statico di pezzi per motorini e scooter: catalogo con filtri, scheda prodotto, carrello salvato nel browser e checkout dimostrativo.
+Negozio statico di abbigliamento. Ingresso, collezione, negozio con filtri, scheda, carrello, checkout dimostrativo, resi e pagina del marchio.
 
 Pagine:
 
-- `index.html` — home, ricerca per modello, categorie
-- `catalogo.html` — filtri per categoria, marca, modello e prezzo
-- `prodotto.html?id=` — scheda, compatibilità e quantità
+- `index.html` — ingresso, una sola azione
+- `home.html` — collezione e pezzi in evidenza
+- `negozio.html` — filtri per categoria, taglia, formato, colore e prezzo
+- `prodotto.html?id=` — scheda
 - `carrello.html` — quantità e riepilogo
-- `checkout.html` — dati di spedizione, senza addebito
-- `resi.html` — recesso e garanzia
-- `contatti.html` — assistenza via email
+- `checkout.html` — spedizione, senza addebito
+- `resi/` — politica resi
+- `marchio.html` — storia del marchio
 
-Il checkout non invia ordini e non addebita pagamenti: il riepilogo resta solo nel browser. Per una richiesta vera usa `smlbresciani@gmail.com`.
+Categorie dedicate: Profumi e Vestiti da sposa, dentro il negozio.
 
-Pubblicazione attuale, aggiornata quando il ramo è su `main`:
+Il checkout non invia ordini e non addebita pagamenti. Per una richiesta vera: `smlbresciani@gmail.com`.
 
-**https://picchettamentodtc-cmyk.github.io/sito1/**
+In locale: `python3 -m http.server`.
