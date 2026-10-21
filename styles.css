@@ -193,7 +193,7 @@ h1, h2, h3, p { margin: 0; }
 .landing-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
 .landing-shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(18, 18, 18, 0.82), rgba(18, 18, 18, 0.18) 72%); }
 .landing-pattern { position: absolute; inset: 0; background-image: url("assets/pattern-light.svg"); background-size: 180px 180px; opacity: 0.5; pointer-events: none; }
-.landing-content { position: relative; z-index: 1; padding: 10vh 7vw 12vh; max-width: 46rem; }
+.landing-content { position: relative; z-index: 1; padding: 10vh 7vw 12vh; max-width: 46rem; width: 100%; min-width: 0; }
 .landing-kicker { font-family: var(--display); letter-spacing: 0.18em; text-transform: uppercase; font-size: 0.75rem; }
 .landing h1 {
   font-family: var(--display);
@@ -206,6 +206,9 @@ h1, h2, h3, p { margin: 0; }
 }
 .landing-tag { font-family: var(--serif); font-style: italic; font-size: clamp(1.7rem, 3vw, 2.5rem); margin-bottom: 1.6rem; }
 .landing .btn { background: var(--bone); color: var(--ink); border-color: var(--bone); }
+.landing-contacts { display: flex; flex-wrap: wrap; gap: 0.45rem 1.15rem; margin: 1.35rem 0 0; padding: 0; list-style: none; max-width: 100%; font-family: var(--display); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; }
+.landing-contacts li { max-width: 100%; min-width: 0; }
+.landing-contacts a { text-decoration: underline; text-underline-offset: 0.25em; overflow-wrap: anywhere; }
 .landing-legal { position: absolute; z-index: 1; right: 1.5rem; bottom: 1rem; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; }
 
 .hero { display: grid; grid-template-columns: minmax(280px, 0.9fr) 1.15fr; min-height: calc(100vh - 112px); border-bottom: 1px solid var(--line); }
@@ -376,7 +379,7 @@ input[type="number"] { appearance: textfield; -moz-appearance: textfield; }
 
 .site-footer { background: var(--ink); color: var(--bone); background-image: url("assets/pattern-light.svg"); background-size: 150px 150px; margin-top: 2rem; }
 .site-footer::before { content: ""; display: block; height: 56px; background: var(--bone) url("assets/pattern.svg"); background-size: 112px 112px; }
-.footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 2rem; padding: 2.5rem 0 1.5rem; }
+.footer-grid { display: grid; grid-template-columns: 1.3fr 0.9fr 0.8fr 1.15fr; gap: 2rem; padding: 2.5rem 0 1.5rem; }
 .footer-grid h2 { font-family: var(--display); font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 0.7rem; }
 .footer-grid ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.35rem; }
 .footer-grid a { text-decoration: underline; text-underline-offset: 0.2em; }
@@ -421,6 +424,8 @@ input[type="number"] { appearance: textfield; -moz-appearance: textfield; }
   .wrap { width: min(1440px, calc(100% - 1.5rem)); }
   .topbar p:last-child, .topbar a + p { display: none; }
   .landing-shade { background: linear-gradient(180deg, rgba(18, 18, 18, 0.1), rgba(18, 18, 18, 0.78)); }
+  .landing-content { padding-left: 1.25rem; padding-right: 1.25rem; padding-bottom: 4.5rem; }
+  .landing-legal { left: 1.25rem; right: auto; }
   .cart-line { grid-template-columns: 84px 1fr; }
   .line-price { grid-column: 2; }
   .form-grid { grid-template-columns: 1fr; }
