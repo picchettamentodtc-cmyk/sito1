@@ -210,6 +210,17 @@ h1, h2, h3, p { margin: 0; }
 .landing-contacts li { max-width: 100%; min-width: 0; }
 .landing-contacts a { text-decoration: underline; text-underline-offset: 0.25em; overflow-wrap: anywhere; }
 .landing-legal { position: absolute; z-index: 1; right: 1.5rem; bottom: 1rem; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; }
+.landing-board { background: var(--bone); color: var(--ink); background-image: url("assets/pattern.svg"); background-size: 160px 160px; }
+.landing-board-inner { width: min(1440px, calc(100% - 3rem)); margin: 0 auto; padding: 3.5rem 0 4rem; }
+.landing-board h2 { font-family: var(--serif); font-weight: 500; font-size: clamp(2.2rem, 4vw, 3.4rem); line-height: 0.95; margin: 0.35rem 0 1.2rem; }
+.landing-cats { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 2.8rem; }
+.landing-cats a { border: 1px solid var(--ink); min-height: 44px; padding: 0.7rem 1rem; font-family: var(--display); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; }
+.landing-cats a:hover { background: var(--ink); color: var(--bone); }
+.landing-picks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-bottom: 2rem; }
+.landing-picks a { display: grid; gap: 0.55rem; min-width: 0; }
+.landing-picks img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; background: #e6e2da; }
+.landing-picks span { font-family: var(--sans); font-weight: 500; }
+.landing-board .btn { background: var(--ink); color: var(--bone); }
 
 .hero { display: grid; grid-template-columns: minmax(280px, 0.9fr) 1.15fr; min-height: calc(100vh - 112px); border-bottom: 1px solid var(--line); }
 .hero-copy {
@@ -426,6 +437,8 @@ input[type="number"] { appearance: textfield; -moz-appearance: textfield; }
   .landing-shade { background: linear-gradient(180deg, rgba(18, 18, 18, 0.1), rgba(18, 18, 18, 0.78)); }
   .landing-content { padding-left: 1.25rem; padding-right: 1.25rem; padding-bottom: 4.5rem; }
   .landing-legal { left: 1.25rem; right: auto; }
+  .landing-board-inner { width: min(1440px, calc(100% - 1.5rem)); }
+  .landing-picks { grid-template-columns: 1fr 1fr; gap: 0.8rem; }
   .cart-line { grid-template-columns: 84px 1fr; }
   .line-price { grid-column: 2; }
   .form-grid { grid-template-columns: 1fr; }
