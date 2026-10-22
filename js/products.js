@@ -3,9 +3,10 @@ export const FREE_SHIPPING_FROM = 180;
 const nero = { id: "nero", name: "Nero", hex: "#161616" };
 const osso = { id: "osso", name: "Osso", hex: "#e6e0d4" };
 const argento = { id: "argento", name: "Argento", hex: "#b7bcc4" };
-const antracite = { id: "antracite", name: "Antracite", hex: "#3a3d42" };
 const sabbia = { id: "sabbia", name: "Sabbia", hex: "#cbbba4" };
 const avorio = { id: "avorio", name: "Avorio", hex: "#f4efe6" };
+const bianco = { id: "bianco", name: "Bianco", hex: "#f5f5f5" };
+const cammello = { id: "cammello", name: "Cammello", hex: "#c4a574" };
 
 export const categoryOrder = [
   "Cappotti",
@@ -38,16 +39,16 @@ export const products = [
   },
   {
     id: "felpa-mass",
-    name: "Felpa Mass",
+    name: "Felpa Bianca",
     price: 180,
     category: "Felpe",
-    colors: [osso],
+    colors: [bianco],
     sizes: ["XS", "S", "M", "L", "XL"],
     image: "assets/products/felpa-mass.jpg",
     featured: true,
     tag: "Essenziale",
-    description: "Felpa in cotone pesante, cappuccio, tascone e spalla scesa. Il peso è quello della strada, il colore è osso.",
-    details: ["Cotone 460 g", "Cappuccio doppio", "Vestibilità boxy", "Orlo a costine"],
+    description: "Felpa da uomo senza marchio. Cappuccio, tascone e fondo a costine, in bianco pieno.",
+    details: ["Senza logo", "Cappuccio", "Tascone", "Costine"],
   },
   {
     id: "camicia-lamina",
@@ -64,20 +65,20 @@ export const products = [
   },
   {
     id: "pantalone-asse",
-    name: "Pantalone Asse",
+    name: "Pantalone Nero",
     price: 220,
     category: "Pantaloni",
-    colors: [antracite],
+    colors: [nero],
     sizes: ["S", "M", "L", "XL"],
     image: "assets/products/pantalone-asse.jpg",
     featured: false,
     tag: "",
-    description: "Pantalone in lana antracite, vita alta, pince e gamba larga. Cade dritto sulla scarpa.",
-    details: ["Lana stretch", "Pince", "Gamba larga", "Vita alta"],
+    description: "Pantalone da uomo senza marchio, nero, gamba dritta e vita regolare.",
+    details: ["Senza logo", "Gamba dritta", "Nero pieno", "Vita regolare"],
   },
   {
     id: "blazer-quadro",
-    name: "Blazer Quadro",
+    name: "Giacca Nera",
     price: 540,
     category: "Giacche",
     colors: [nero],
@@ -85,8 +86,8 @@ export const products = [
     image: "assets/products/blazer-quadro.jpg",
     featured: true,
     tag: "Icona",
-    description: "Blazer nero con spalla morbida e due bottoni. La giacca da mettere sulla felpa o sul dolcevita.",
-    details: ["Lana e mohair", "Spalla morbida", "Due bottoni", "Tasche a filetto"],
+    description: "Giacca da uomo senza marchio, nera, spalla strutturata e un bottone.",
+    details: ["Senza logo", "Nero pieno", "Un bottone", "Rever classico"],
   },
   {
     id: "tee-modulo",
@@ -103,16 +104,16 @@ export const products = [
   },
   {
     id: "bomber-velo",
-    name: "Bomber Velo",
+    name: "Giacca Cammello",
     price: 380,
     category: "Giacche",
-    colors: [nero],
+    colors: [cammello],
     sizes: ["M", "L", "XL"],
     image: "assets/products/bomber-velo.jpg",
     featured: false,
     tag: "",
-    description: "Bomber in nylon opaco, zip a vista e costine. Il volume è corto, il nero è pieno.",
-    details: ["Nylon opaco", "Zip metallica", "Costine", "Tasche oblique"],
+    description: "Giacca da uomo senza marchio, color cammello, rever largo e lunghezza sotto il fianco.",
+    details: ["Senza logo", "Color cammello", "Rever largo", "Vestibilità morbida"],
   },
   {
     id: "dolcevita-nord",
