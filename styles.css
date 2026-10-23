@@ -327,6 +327,13 @@ h1, h2, h3, p { margin: 0; }
 }
 .lab-notes .btn { color: var(--ink); border-color: var(--gold); background: var(--gold); }
 .lab-notes { padding: 3rem 0 4rem; display: grid; gap: 1rem; justify-items: start; max-width: 40rem; }
+.old-school { border: 3px solid var(--bone); padding: 1.6rem 1.3rem 1.2rem; margin-bottom: 3rem; background: repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(214, 255, 60, 0.07) 10px, rgba(214, 255, 60, 0.07) 11px); }
+.old-school h1 { font-family: var(--display); font-weight: 700; letter-spacing: 0.02em; text-transform: uppercase; font-size: clamp(3rem, 9vw, 6.2rem); line-height: 0.82; }
+.old-school .lede { max-width: 36rem; }
+.old-list { list-style: none; margin: 1.6rem 0 0; padding: 0; }
+.old-list a { display: flex; justify-content: space-between; gap: 1rem; border-top: 2px solid var(--bone); padding: 0.85rem 0; font-family: var(--display); letter-spacing: 0.08em; text-transform: uppercase; }
+.old-list li:last-child a { border-bottom: 2px solid var(--bone); }
+.old-list span:last-child { color: var(--gold); }
 .lab-notes p { color: var(--muted); }
 
 .hero { display: grid; grid-template-columns: minmax(280px, 0.9fr) 1.15fr; min-height: calc(100vh - 112px); border-bottom: 1px solid var(--line); }

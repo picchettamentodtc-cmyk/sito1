@@ -21,6 +21,10 @@ function markNav() {
   const hereFile = here.pathname.split("/").pop() || "index.html";
   document.querySelectorAll("[data-nav]").forEach((link) => {
     const url = new URL(link.getAttribute("href"), location.href);
+    if (url.pathname.includes("/old-school")) {
+      if (here.pathname.includes("/old-school")) link.setAttribute("aria-current", "page");
+      return;
+    }
     const linkFile = url.pathname.split("/").pop() || "index.html";
     if (linkFile !== hereFile) return;
     const linkCat = url.searchParams.get("cat");
