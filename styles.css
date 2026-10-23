@@ -35,7 +35,7 @@ body::after {
   background-color: #070707;
   background-image:
     linear-gradient(180deg, rgba(7, 7, 7, 0.8) 0%, rgba(7, 7, 7, 0.64) 42%, rgba(7, 7, 7, 0.82) 100%),
-    url("assets/street.jpg");
+    url("assets/street.jpg?v=mattone");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
