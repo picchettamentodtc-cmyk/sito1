@@ -217,10 +217,6 @@ h1, h2, h3, p { margin: 0; }
 .landing-cats { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 2.8rem; }
 .landing-cats a { border: 1px solid var(--ink); min-height: 44px; padding: 0.7rem 1rem; font-family: var(--display); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; }
 .landing-cats a:hover { background: var(--ink); color: var(--bone); }
-.landing-picks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-bottom: 2rem; }
-.landing-picks a { display: grid; gap: 0.55rem; min-width: 0; }
-.landing-picks img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; background: #e6e2da; }
-.landing-picks span { font-family: var(--sans); font-weight: 500; }
 .landing-board .btn { background: var(--ink); color: var(--bone); }
 .landing-carousel { background: var(--ink); color: var(--bone); margin-bottom: 2rem; padding: 1.25rem; }
 .landing-carousel-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem; margin-bottom: 1rem; }
@@ -535,7 +531,6 @@ input[type="number"] { appearance: textfield; -moz-appearance: textfield; }
   .landing-content { padding-left: 1.25rem; padding-right: 1.25rem; padding-bottom: 4.5rem; }
   .landing-legal { left: 1.25rem; right: auto; }
   .landing-board-inner { width: min(1440px, calc(100% - 1.5rem)); }
-  .landing-picks { grid-template-columns: 1fr 1fr; gap: 0.8rem; }
   .landing-carousel { padding: 1rem 0.75rem; }
   .landing-slide img { height: 72vw; min-height: 280px; }
   .landing-carousel-head { align-items: flex-start; }
