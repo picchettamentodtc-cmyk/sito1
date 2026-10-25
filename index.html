@@ -628,6 +628,7 @@
           }
         ];
         state.selected = 0;
+        state.aim = 0.4;
         for (let y = 0; y < chapter.rows.length; y++) {
           for (let x = 0; x < chapter.rows[y].length; x++) {
             const ch = chapter.rows[y][x];
@@ -641,6 +642,10 @@
               state.shadow = { x: point.x, y: point.y, ox: point.x, oy: point.y };
             }
           }
+        }
+        if (state.lamps.length) {
+          const lamp = state.lamps[0];
+          state.aim = Math.atan2(lamp.y - state.player.y, lamp.x - state.player.x);
         }
         document.body.classList.add("playing");
         document.body.classList.remove("shaking");
@@ -879,33 +884,58 @@
         pulseAudio(dt);
       }
 
+      const PALETTE = [
+        { floor: "#6a7c86", wall: "#24343c", door: "#9a4038", item: "#f0d78c" },
+        { floor: "#7a4450", wall: "#321820", door: "#e23b2f", item: "#f2c14e" },
+        { floor: "#655888", wall: "#2a2238", door: "#d5c6f0", item: "#f4efe6" },
+        { floor: "#3f6a52", wall: "#14241c", door: "#101410", item: "#d7e2c8" },
+        { floor: "#6a7380", wall: "#222830", door: "#e6ebf2", item: "#f7f4ef" },
+        { floor: "#7a3344", wall: "#2c1218", door: "#5c1020", item: "#f7f4ef" }
+      ];
+
       function drawTiles() {
+        const colors = PALETTE[state.chapter] || PALETTE[0];
         forEachTile((x, y, ch) => {
           const px = x * TILE;
           const py = y * TILE;
           if (ch === "#") {
-            ctx.fillStyle = "#241c1c";
+            ctx.fillStyle = colors.wall;
             ctx.fillRect(px, py, TILE, TILE);
-            ctx.fillStyle = "#100c0c";
-            ctx.fillRect(px + 3, py + 3, TILE - 6, TILE - 6);
+            ctx.strokeStyle = "rgba(255,255,255,0.06)";
+            ctx.strokeRect(px + 0.5, py + 0.5, TILE - 1, TILE - 1);
             return;
           }
-          ctx.fillStyle = "#161311";
+          ctx.fillStyle = colors.floor;
           ctx.fillRect(px, py, TILE, TILE);
-          if ((x * 13 + y * 7) % 5 === 0) {
-            ctx.fillStyle = "#211c19";
-            ctx.fillRect(px + 8, py + 18, 3, 2);
+          ctx.strokeStyle = "rgba(0,0,0,0.18)";
+          ctx.strokeRect(px + 0.5, py + 0.5, TILE - 1, TILE - 1);
+          if (ch === "L") {
+            ctx.fillStyle = "rgba(255, 214, 140, 0.55)";
+            ctx.beginPath();
+            ctx.arc(px + TILE / 2, py + TILE / 2, 8, 0, Math.PI * 2);
+            ctx.fill();
           }
           const key = x + "," + y;
           if (!state.cleared.has(key) && PICKUPS[ch]) {
-            ctx.fillStyle = "#c7b27a";
-            ctx.fillRect(px + 18, py + 18, 10, 10);
+            ctx.fillStyle = colors.item;
+            ctx.beginPath();
+            ctx.arc(px + TILE / 2, py + TILE / 2, 11, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.fillStyle = "#1a120c";
+            ctx.font = "bold 14px Georgia, serif";
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+            ctx.fillText(PICKUPS[ch].name.slice(0, 1), px + TILE / 2, py + TILE / 2 + 1);
+          }
+          if (ch === "!") {
+            ctx.fillStyle = "rgba(226, 59, 47, 0.35)";
+            ctx.fillRect(px + 8, py + 8, TILE - 16, TILE - 16);
           }
           if (ch === "E") {
-            ctx.fillStyle = "#3a1012";
+            ctx.fillStyle = colors.door;
             ctx.fillRect(px + 8, py + 4, TILE - 16, TILE - 8);
-            ctx.fillStyle = "#c7b27a";
-            ctx.fillRect(px + TILE - 16, py + 24, 3, 3);
+            ctx.fillStyle = "#f4efe6";
+            ctx.fillRect(px + TILE - 18, py + 22, 5, 5);
           }
         });
       }
@@ -941,11 +971,11 @@
           ctx.fillRect(state.shadow.x - 6, state.shadow.y - 6, 3, 3);
           ctx.fillRect(state.shadow.x + 3, state.shadow.y - 6, 3, 3);
         }
-        ctx.fillStyle = "rgba(0,0,0,0.9)";
+        ctx.fillStyle = "rgba(0,0,0,0.72)";
         ctx.fillRect(-30, -30, canvas.width + 60, canvas.height + 60);
         ctx.globalCompositeOperation = "destination-out";
         state.lamps.forEach((lamp, i) => punch(lamp.x, lamp.y, lampRadius(i)));
-        punch(state.player.x, state.player.y, 30);
+        punch(state.player.x, state.player.y, 78);
         const reach = coneLen();
         ctx.save();
         ctx.translate(state.player.x, state.player.y);
@@ -973,10 +1003,19 @@
         if (state.prompt) {
           ctx.font = "16px Georgia, serif";
           ctx.textAlign = "center";
+          ctx.textBaseline = "alphabetic";
           ctx.fillStyle = "#e6dccb";
           ctx.fillText(state.prompt, canvas.width / 2, canvas.height - 18);
         }
         ctx.restore();
+        const chapter = CHAPTERS[state.chapter];
+        ctx.fillStyle = "rgba(0,0,0,0.55)";
+        ctx.fillRect(16, 14, 340, 36);
+        ctx.fillStyle = "#f4efe6";
+        ctx.font = "18px Georgia, serif";
+        ctx.textAlign = "left";
+        ctx.textBaseline = "middle";
+        ctx.fillText("Capitolo " + chapter.n + "  ·  " + chapter.title, 28, 32);
         renderBars();
       }
 
