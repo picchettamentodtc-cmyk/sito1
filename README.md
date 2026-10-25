@@ -1,21 +1,21 @@
-# Threshold
+# Mickey Mouse
 
-Horror in una sola pagina: sei capitoli, torcia, inventario e spaventi sparsi nel buio.
+Survival in una sola pagina: sei capitoli in un lotto di cartoni spento, torcia, inventario e spaventi sparsi.
 
 Apri `index.html`.
 
 - WASD o le frecce per muoverti
 - Il mouse dirige la torcia
-- E interagisce con la porta
+- E apre il passaggio
 - I tasti 1–6 scelgono l’oggetto nell’inventario
 - Usa consuma una batteria e ricarica la luce
 - Esc torna al menu
 
 Capitoli:
 
-1. La Soglia
-2. Blackout
-3. Whisper
-4. Descent
-5. Mirror
-6. Crossing
+1. Il Battello
+2. La Banda
+3. Il Canto
+4. L'Inchiostro
+5. Lo Schermo
+6. Il Sipario

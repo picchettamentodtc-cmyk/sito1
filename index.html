@@ -3,21 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Threshold</title>
+    <title>Mickey Mouse</title>
     <meta
       name="description"
-      content="Threshold è un horror in sei capitoli: torcia, inventario e spaventi sparsi nel buio."
+      content="Mickey Mouse è un survival in sei capitoli: torcia, inventario e spaventi sparsi nel buio di un vecchio lotto di cartoni."
     />
     <link
       rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23070607'/%3E%3Crect x='10' y='4' width='12' height='24' fill='none' stroke='%239a1c1c' stroke-width='2'/%3E%3C/svg%3E"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23070607'/%3E%3Ccircle cx='10' cy='12' r='6' fill='%23f4efe6'/%3E%3Ccircle cx='22' cy='12' r='6' fill='%23f4efe6'/%3E%3Ccircle cx='16' cy='20' r='8' fill='%23f4efe6'/%3E%3C/svg%3E"
     />
     <style>
       :root {
         --bg: #070607;
         --paper: #e6dccb;
         --dim: #8d8478;
-        --blood: #9a1c1c;
+        --blood: #e23b2f;
         --line: #3a2c2c;
       }
       * { box-sizing: border-box; }
@@ -40,24 +40,27 @@
           var(--bg);
       }
       .wrap { width: min(640px, 100%); }
-      .door {
-        width: 72px;
-        height: 116px;
-        border: 2px solid var(--blood);
-        margin-bottom: 18px;
+      .mark {
+        width: 56px;
+        height: 56px;
+        margin: 22px 0 14px 18px;
+        border-radius: 50%;
+        background: #f4efe6;
         position: relative;
-        box-shadow: inset 0 0 28px rgba(154, 28, 28, 0.4);
+        box-shadow: 0 0 24px rgba(226, 59, 47, 0.35);
       }
-      .door::after {
+      .mark::before,
+      .mark::after {
         content: "";
         position: absolute;
-        width: 7px;
-        height: 7px;
+        width: 34px;
+        height: 34px;
         border-radius: 50%;
-        background: #c7b27a;
-        right: 10px;
-        top: 56px;
+        background: #111;
+        top: -16px;
       }
+      .mark::before { left: -12px; }
+      .mark::after { right: -12px; }
       .eyebrow {
         letter-spacing: 0.22em;
         text-transform: uppercase;
@@ -67,8 +70,8 @@
       }
       h1 {
         font-weight: 500;
-        font-size: clamp(52px, 9vw, 88px);
-        letter-spacing: 0.16em;
+        font-size: clamp(42px, 7vw, 72px);
+        letter-spacing: 0.08em;
         text-transform: uppercase;
         margin: 0 0 8px;
       }
@@ -137,13 +140,25 @@
       #scare { background: rgba(70, 0, 0, 0.28); pointer-events: none; }
       .face {
         width: 210px;
-        height: 270px;
-        border-radius: 46% 46% 40% 40%;
-        background: radial-gradient(circle at 50% 38%, #f4efe6, #b7aa9a 58%, #140e0c 100%);
+        height: 230px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 50% 42%, #f4efe6, #c7b7a4 62%, #140e0c 100%);
         position: relative;
         animation: lunge 0.12s ease-out;
         box-shadow: 0 0 90px #500;
       }
+      .face::before,
+      .face::after {
+        content: "";
+        position: absolute;
+        width: 86px;
+        height: 86px;
+        border-radius: 50%;
+        background: #140e0c;
+        top: -34px;
+      }
+      .face::before { left: -6px; }
+      .face::after { right: -6px; }
       .face i, .face b {
         position: absolute;
         top: 38%;
@@ -202,19 +217,19 @@
   <body>
     <main id="menu">
       <div class="wrap">
-        <div class="door" aria-hidden="true"></div>
-        <p class="eyebrow">Horror in sei capitoli</p>
-        <h1>Threshold</h1>
-        <p class="lead">Tieni la luce accesa. Raccogli ciò che serve. Attraversa solo quando l’inventario è completo. Il buio risponde, ma non di continuo.</p>
+        <div class="mark" aria-hidden="true"></div>
+        <p class="eyebrow">Survival in sei capitoli</p>
+        <h1>Mickey Mouse</h1>
+        <p class="lead">Un vecchio lotto di cartoni, a luci spente. Tieni la torcia accesa, riempi l’inventario e non fidarti di ogni orecchia nel buio. Gli spaventi arrivano, ma non di continuo.</p>
         <ol class="chapter-list" id="chapter-list">
-          <li><button type="button" data-chapter="0"><span>01</span><span><strong>La Soglia</strong><small>L’ingresso. Una chiave, una porta.</small></span></button></li>
-          <li><button type="button" data-chapter="1"><span>02</span><span><strong>Blackout</strong><small>Quadri spenti, batterie, un fusibile.</small></span></button></li>
-          <li><button type="button" data-chapter="2"><span>03</span><span><strong>Whisper</strong><small>Due pagine e una voce troppo vicina.</small></span></button></li>
-          <li><button type="button" data-chapter="3"><span>04</span><span><strong>Descent</strong><small>La discesa. L’ombra resta nel buio.</small></span></button></li>
-          <li><button type="button" data-chapter="4"><span>05</span><span><strong>Mirror</strong><small>Un corridoio che si ripete.</small></span></button></li>
-          <li><button type="button" data-chapter="5"><span>06</span><span><strong>Crossing</strong><small>L’ultima soglia chiede il sigillo.</small></span></button></li>
+          <li><button type="button" data-chapter="0"><span>01</span><span><strong>Il Battello</strong><small>Il molo. La chiave del timone.</small></span></button></li>
+          <li><button type="button" data-chapter="1"><span>02</span><span><strong>La Banda</strong><small>Lampade morte, batterie, la valvola.</small></span></button></li>
+          <li><button type="button" data-chapter="2"><span>03</span><span><strong>Il Canto</strong><small>Due battute e una voce troppo vicina.</small></span></button></li>
+          <li><button type="button" data-chapter="3"><span>04</span><span><strong>L'Inchiostro</strong><small>La discesa. L'ombra resta nella pozza nera.</small></span></button></li>
+          <li><button type="button" data-chapter="4"><span>05</span><span><strong>Lo Schermo</strong><small>Un corridoio che si ripete sul fotogramma.</small></span></button></li>
+          <li><button type="button" data-chapter="5"><span>06</span><span><strong>Il Sipario</strong><small>L'uscita chiede il guanto bianco.</small></span></button></li>
         </ol>
-        <p class="notes">Inventario: la torcia è sempre con te. Chiavi, note, batterie, fusibile, scheggia e sigillo compaiono nel pannello a destra. WASD per muoverti, il mouse mira la luce, E apre la porta, 1–6 scelgono l’oggetto, Usa ricarica la torcia.</p>
+        <p class="notes">Inventario: la torcia è sempre con te. Chiave del timone, spartiti, batterie, valvola, fotogramma e guanto bianco compaiono nel pannello a destra. WASD per muoverti, il mouse mira la luce, E apre il passaggio, 1–6 scelgono l’oggetto, Usa ricarica la torcia.</p>
       </div>
     </main>
 
@@ -244,7 +259,7 @@
 
     <div id="banner" hidden>
       <div class="banner-card">
-        <p class="eyebrow" id="banner-kicker">Threshold</p>
+        <p class="eyebrow" id="banner-kicker">Mickey Mouse</p>
         <h2 id="banner-title"></h2>
         <p id="banner-copy"></p>
         <button type="button" id="banner-next">Capitolo successivo</button>
@@ -257,13 +272,13 @@
       const COLS = 20;
       const ROWS = 12;
       const PICKUPS = {
-        k: { id: "key", name: "Chiave d'ottone", about: "Fredda, e troppo pesante per una tasca." },
-        n: { id: "note", name: "Biglietto strappato", about: "«Non contare le porte. La terza mente.»" },
-        o: { id: "page", name: "Seconda pagina", about: "«Se la luce tiene, l'ombra resta indietro.»" },
+        k: { id: "key", name: "Chiave del timone", about: "Apre la cabina del battello. È ancora umida." },
+        n: { id: "note", name: "Spartito", about: "«Non contare le battute. La terza è stonata.»" },
+        o: { id: "page", name: "Seconda battuta", about: "«Se la luce tiene, l'inchiostro resta indietro.»" },
         b: { id: "battery", name: "Batteria", about: "Usala per ridare fiato alla torcia.", usable: true },
-        f: { id: "fuse", name: "Fusibile", about: "Manca nel quadro. La porta lo sa." },
-        m: { id: "shard", name: "Scheggia di specchio", about: "Riflette un corridoio che non è questo." },
-        g: { id: "sigil", name: "Sigillo", about: "L'ultima soglia lo riconosce." }
+        f: { id: "fuse", name: "Valvola", about: "Manca nella banda. Il passaggio la riconosce." },
+        m: { id: "shard", name: "Fotogramma", about: "Mostra un corridoio che non è questo." },
+        g: { id: "sigil", name: "Guanto bianco", about: "Il sipario si apre solo se lo indossi." }
       };
 
       function blank() {
@@ -395,56 +410,56 @@
       const CHAPTERS = [
         {
           n: 1,
-          title: "La Soglia",
-          objective: "Trova la chiave e apri la porta in fondo.",
+          title: "Il Battello",
+          objective: "Trova la chiave del timone e apri la cabina.",
           need: ["key"],
-          scare: "Non dovevi aprire.",
-          panic: "Qualcuno ha contato i tuoi passi.",
+          scare: "Il fischio non era il tuo.",
+          panic: "Passi sul ponte, e non sono i tuoi.",
           rows: mapSoglia()
         },
         {
           n: 2,
-          title: "Blackout",
-          objective: "Recupera il fusibile. Le batterie tengono la torcia viva.",
+          title: "La Banda",
+          objective: "Recupera la valvola. Le batterie tengono la torcia viva.",
           need: ["fuse"],
-          scare: "C'è ancora qualcuno nel quadro.",
-          panic: "La luce non era spenta.",
+          scare: "La banda suona da sola.",
+          panic: "Le lampade del molo si spengono.",
           rows: mapBlackout()
         },
         {
           n: 3,
-          title: "Whisper",
-          objective: "Leggi entrambe le pagine, poi esci.",
+          title: "Il Canto",
+          objective: "Raccogli le due battute, poi esci.",
           need: ["note", "page"],
-          scare: "La pagina era già scritta.",
-          panic: "Hai sentito il tuo nome.",
+          scare: "Qualcuno ha cantato il tuo nome.",
+          panic: "La voce è nel corridoio.",
           rows: mapWhisper()
         },
         {
           n: 4,
-          title: "Descent",
+          title: "L'Inchiostro",
           objective: "Tieni la luce sull'ombra, prendi la chiave, scendi.",
           need: ["key"],
-          scare: "Dal basso sale un respiro.",
-          panic: "Non guardare la scala.",
+          scare: "L'inchiostro ha una faccia.",
+          panic: "Non guardare la pozza nera.",
           rows: mapDescent()
         },
         {
           n: 5,
-          title: "Mirror",
-          objective: "La scheggia apre la vera uscita. L'altra porta mente.",
+          title: "Lo Schermo",
+          objective: "Il fotogramma apre la vera uscita. L'altra mente.",
           need: ["shard"],
-          scare: "Non è il tuo riflesso.",
-          panic: "Lo specchio ha risposto prima.",
+          scare: "Sul fotogramma c'è un altro muso.",
+          panic: "Lo schermo risponde prima.",
           rows: mapMirror()
         },
         {
           n: 6,
-          title: "Crossing",
-          objective: "Porta il sigillo oltre l'ultima soglia.",
+          title: "Il Sipario",
+          objective: "Porta il guanto bianco oltre l'ultima uscita.",
           need: ["sigil"],
-          scare: "Ti stava aspettando.",
-          panic: "La soglia si è richiusa.",
+          scare: "Ti stava aspettando dietro il velluto.",
+          panic: "Il sipario non si apre.",
           rows: mapCrossing()
         }
       ];
@@ -608,7 +623,7 @@
           {
             id: "torch",
             name: "Torcia",
-            about: "Il cono segue il mouse. La carica cala nel buio.",
+            about: "Il riflettore segue il mouse. La carica cala nel buio.",
             qty: 1
           }
         ];
@@ -668,8 +683,8 @@
         const last = state.chapter === CHAPTERS.length - 1;
         document.getElementById("banner-title").textContent = last ? "Oltre" : chapter.title;
         document.getElementById("banner-copy").textContent = last
-          ? "Hai attraversato l'ultima soglia. Dietro di te non resta luce."
-          : "La porta si chiude alle tue spalle.";
+          ? "Il sipario si chiude. Dietro di te il riflettore è spento."
+          : "Il passaggio si chiude alle tue spalle.";
         document.getElementById("banner-next").hidden = last;
         document.getElementById("banner").hidden = false;
       }
@@ -806,7 +821,7 @@
       function useSelected() {
         const item = state.inventory[state.selected];
         if (!item || item.id !== "battery") {
-          state.log = "Questo oggetto si usa sulla porta, non in mano.";
+          state.log = "Questo oggetto si usa sul passaggio, non in mano.";
           return;
         }
         removeItem("battery");
@@ -859,7 +874,7 @@
         const door = nearestDoor();
         if (door) {
           const missing = CHAPTERS[state.chapter].need.filter((id) => !hasItem(id));
-          state.prompt = missing.length ? "E  — ti manca ancora qualcosa" : "E  — attraversa la soglia";
+          state.prompt = missing.length ? "E  — ti manca ancora qualcosa" : "E  — apri il passaggio";
         } else state.prompt = "";
         pulseAudio(dt);
       }
@@ -918,7 +933,9 @@
         if (state.shadow) {
           ctx.fillStyle = "#050305";
           ctx.beginPath();
-          ctx.ellipse(state.shadow.x, state.shadow.y, 16, 22, 0, 0, Math.PI * 2);
+          ctx.arc(state.shadow.x - 10, state.shadow.y - 16, 7, 0, Math.PI * 2);
+          ctx.arc(state.shadow.x + 10, state.shadow.y - 16, 7, 0, Math.PI * 2);
+          ctx.ellipse(state.shadow.x, state.shadow.y, 14, 18, 0, 0, Math.PI * 2);
           ctx.fill();
           ctx.fillStyle = "#f2f2f2";
           ctx.fillRect(state.shadow.x - 6, state.shadow.y - 6, 3, 3);
@@ -944,6 +961,11 @@
         ctx.fill();
         ctx.restore();
         ctx.globalCompositeOperation = "source-over";
+        ctx.fillStyle = "#111";
+        ctx.beginPath();
+        ctx.arc(state.player.x - 8, state.player.y - 9, 5, 0, Math.PI * 2);
+        ctx.arc(state.player.x + 8, state.player.y - 9, 5, 0, Math.PI * 2);
+        ctx.fill();
         ctx.fillStyle = "#efe6d6";
         ctx.beginPath();
         ctx.arc(state.player.x, state.player.y, 7, 0, Math.PI * 2);
@@ -1019,7 +1041,7 @@
         const errors = [];
         try {
           if (CHAPTERS.length !== 6) errors.push("count");
-          if (document.querySelector("h1").textContent.trim() !== "Threshold") errors.push("title");
+          if (document.querySelector("h1").textContent.trim() !== "Mickey Mouse") errors.push("title");
           const glyphs = { key: "k", note: "n", page: "o", fuse: "f", shard: "m", sigil: "g" };
           CHAPTERS.forEach((chapter, index) => {
             const width = chapter.rows[0].length;
