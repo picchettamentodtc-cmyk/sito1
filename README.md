@@ -1,19 +1,21 @@
-# Banco 50 — Ricambi per motorini
+# Threshold
 
-Negozio statico di pezzi per motorini e scooter: catalogo con filtri, scheda prodotto, carrello salvato nel browser e checkout dimostrativo.
+Horror in una sola pagina: sei capitoli, torcia, inventario e spaventi sparsi nel buio.
 
-Pagine:
+Apri `index.html`.
 
-- `index.html` — home, ricerca per modello, categorie
-- `catalogo.html` — filtri per categoria, marca, modello e prezzo
-- `prodotto.html?id=` — scheda, compatibilità e quantità
-- `carrello.html` — quantità e riepilogo
-- `checkout.html` — dati di spedizione, senza addebito
-- `resi.html` — recesso e garanzia
-- `contatti.html` — assistenza via email
+- WASD o le frecce per muoverti
+- Il mouse dirige la torcia
+- E interagisce con la porta
+- I tasti 1–6 scelgono l’oggetto nell’inventario
+- Usa consuma una batteria e ricarica la luce
+- Esc torna al menu
 
-Il checkout non invia ordini e non addebita pagamenti: il riepilogo resta solo nel browser. Per una richiesta vera usa `smlbresciani@gmail.com`.
+Capitoli:
 
-Pubblicazione attuale, aggiornata quando il ramo è su `main`:
-
-**https://picchettamentodtc-cmyk.github.io/sito1/**
+1. La Soglia
+2. Blackout
+3. Whisper
+4. Descent
+5. Mirror
+6. Crossing
