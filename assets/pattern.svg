@@ -8,5 +8,4 @@
     <path d="M20 80 L80 20"/>
   </g>
   <path d="M0 79.5 H26 M54 79.5 H80" fill="none" stroke="#121212" stroke-opacity="0.2" stroke-width="0.6"/>
-  <rect x="34" y="36" width="12" height="8" rx="4" fill="none" stroke="#b08d57" stroke-opacity="0.55" stroke-width="1"/>
 </svg>
