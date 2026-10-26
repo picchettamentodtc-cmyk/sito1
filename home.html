@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Collezione — Mercury Search</title>
+    <meta name="description" content="Mercury Search: abbigliamento tra sartoria e streetwear. Cappotti, felpe, profumi e abiti da sposa." />
+    <meta name="theme-color" content="#121212" />
+    <link rel="icon" href="assets/favicon.svg?v=mercurio" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@300;400;500;600&family=Syne:wght@600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css?v=20261026a" />
+  </head>
+  <body>
+    <a class="skip-link" href="#contenuto">Vai al contenuto</a>
+    <header class="site-header">
+      <div class="topbar">
+        <p data-shipping-note>Spedizione gratuita oltre 180 €</p>
+        <a href="resi/">Reso gratuito entro 14 giorni</a>
+        <p>Collezione 06</p>
+      </div>
+      <div class="header-inner">
+        <a class="logo" href="home.html" aria-label="Mercury Search — Home">
+          <img class="logo-mark" src="assets/mark.svg?v=mercurio" alt="" width="34" height="34" />
+          <span class="logo-text">Mercury Search</span>
+        </a>
+        <nav class="main-nav" aria-label="Navigazione principale">
+          <a data-nav href="negozio.html">Negozio</a>
+          <a data-nav href="old-school/">Old School</a>
+          <a data-nav href="lab.html">Lab Custom</a>
+          <a data-nav href="negozio.html?cat=Profumi">Profumi</a>
+          <a data-nav href="negozio.html?cat=Vestiti%20da%20sposa">Sposa</a>
+          <a data-nav href="marchio.html">Il marchio</a>
+        </nav>
+        <form class="header-search" action="negozio.html" method="get" role="search">
+          <label class="visually-hidden" for="header-query">Cerca nella collezione</label>
+          <input id="header-query" type="search" name="q" placeholder="Cerca un capo" autocomplete="off" />
+          <button type="submit" aria-label="Cerca"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="1.8" /><path d="M16.5 16.5 21 21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg></button>
+        </form>
+        <button class="cart-link" type="button" id="open-cart" aria-label="Apri il carrello">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8z" fill="none" stroke="currentColor" stroke-width="1.6" /><path d="M9 8V7a3 3 0 0 1 6 0v1" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
+          <span class="cart-word">Carrello</span>
+          <span class="cart-count" data-cart-count>0</span>
+        </button>
+        <button class="menu-toggle" type="button" aria-label="Apri menu" aria-expanded="false" aria-controls="mobile-nav"><span></span><span></span><span></span></button>
+      </div>
+      <nav id="mobile-nav" class="mobile-nav" aria-label="Menu mobile" hidden>
+        <form class="mobile-search" action="negozio.html" method="get" role="search">
+          <label class="visually-hidden" for="mobile-query">Cerca nella collezione</label>
+          <input id="mobile-query" type="search" name="q" placeholder="Cerca un capo" autocomplete="off" />
+          <button type="submit">Cerca</button>
+        </form>
+        <a data-nav href="negozio.html">Negozio</a>
+        <a data-nav href="old-school/">Old School</a>
+        <a data-nav href="lab.html">Lab Custom</a>
+        <a data-nav href="negozio.html?cat=Profumi">Profumi</a>
+        <a data-nav href="negozio.html?cat=Vestiti%20da%20sposa">Sposa</a>
+        <a data-nav href="marchio.html">Il marchio</a>
+        <a href="resi/">Resi</a>
+        <a href="carrello.html">Carrello</a>
+      </nav>
+    </header>
+    <main id="contenuto">
+      <section class="hero">
+        <div class="hero-title">
+          <p class="eyebrow">Mercury Search · Drop 06</p>
+          <h1>Sotto la luce,<br /><em>sopra la strada.</em></h1>
+        </div>
+        <div class="hero-copy">
+          <p class="lede">Felpe, nylon e nero pieno. Una casa sola, dal capo al profumo, senza vetrina.</p>
+          <div class="hero-actions">
+            <a class="btn" href="negozio.html">Esplora il negozio</a>
+            <a class="btn btn-ghost" href="#novita">Pezzi in evidenza</a>
+          </div>
+        </div>
+        <figure class="hero-media">
+          <img src="assets/look.jpg" alt="Blazer nero e dolcevita argento Mercury Search" />
+        </figure>
+      </section>
+      <div class="pattern-rule" aria-hidden="true"></div>
+      <section class="section wrap" id="novita">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">In evidenza</p>
+            <h2>Pezzi della collezione</h2>
+          </div>
+          <a class="text-link" href="negozio.html">Vedi tutti i capi</a>
+        </div>
+        <div id="featured" class="product-grid"></div>
+      </section>
+      <section class="wrap look" id="look">
+        <img src="assets/products/cappotto-ombra.jpg" alt="Cappotto Ombra, lana nera Mercury Search" />
+        <div>
+          <p class="eyebrow">Il marchio</p>
+          <h2>Volume largo, metallo spento.</h2>
+          <p>Mercury Search tiene insieme la sartoria e la strada: spalla morbida, felpa pesante, una catena d'argento e basta. Pochi capi, prezzi chiari.</p>
+          <a class="btn" href="marchio.html">Leggi la storia</a>
+        </div>
+      </section>
+      <section class="section wrap" id="categorie">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Categorie</p>
+            <h2>Cerca per tipo</h2>
+          </div>
+        </div>
+        <nav id="category-list" class="cat-list" aria-label="Categorie"></nav>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="wrap footer-grid">
+        <div>
+          <a class="footer-logo" href="home.html">Mercury Search</a>
+          <p>Abbigliamento tra sartoria e strada. Pochi capi, taglio largo, metallo spento.</p>
+        </div>
+        <div>
+          <h2>Negozio</h2>
+          <ul>
+            <li><a href="negozio.html">Tutti i capi</a></li>
+            <li><a href="old-school/">Old School</a></li>
+            <li><a href="lab.html">Mercury Search Lab Custom</a></li>
+            <li><a href="negozio.html?cat=Profumi">Profumi</a></li>
+            <li><a href="negozio.html?cat=Vestiti%20da%20sposa">Vestiti da sposa</a></li>
+            <li><a href="negozio.html?cat=Giacche">Giacche</a></li>
+            <li><a href="carrello.html">Carrello</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Casa</h2>
+          <ul>
+            <li><a href="index.html">Ingresso</a></li>
+            <li><a href="marchio.html">Il marchio</a></li>
+            <li><a href="resi/">Resi</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Contatti</h2>
+          <ul>
+            <li><a href="mailto:smlbresciani@gmail.com">Email · smlbresciani@gmail.com</a></li>
+            <li><a href="https://wa.me/393336196356" target="_blank" rel="noopener noreferrer">WhatsApp · +39 333 619 6356</a></li>
+            <li><a href="https://www.instagram.com/MercurySearch" target="_blank" rel="noopener noreferrer">Instagram · Mercury Search</a></li>
+            <li><a href="https://www.instagram.com/MercurySearch.lab" target="_blank" rel="noopener noreferrer">Instagram · MercurySearch.lab</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="wrap footer-bottom">
+        <p>© <span data-year>2026</span> Mercury Search. Tutti i diritti riservati.</p>
+        <p>Checkout dimostrativo: nessun pagamento viene addebitato.</p>
+      </div>
+    </footer>
+    <noscript><p class="noscript wrap">Per vedere i capi e il carrello serve JavaScript.</p></noscript>
+    <script type="module" src="js/home.js"></script>
+  </body>
+</html>

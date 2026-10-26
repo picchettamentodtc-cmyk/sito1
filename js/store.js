@@ -1,117 +1,95 @@
-(function () {
-  const KEY = "banco50-cart";
+import { getProduct } from "./products.js";
 
-  function round2(value) {
-    return Math.round(value * 100) / 100;
+export const FREE_SHIPPING_FROM = 180;
+export const STANDARD_SHIPPING = 8;
+export const EXPRESS_SHIPPING = 18;
+const KEY = "mercury-search-cart";
+const MAX_QTY = 5;
+
+function read() {
+  try {
+    const data = JSON.parse(localStorage.getItem(KEY) || "[]");
+    return Array.isArray(data) ? data : [];
+  } catch {
+    return [];
   }
+}
 
-  function read() {
-    try {
-      const data = JSON.parse(localStorage.getItem(KEY) || "[]");
-      if (!Array.isArray(data)) return [];
-      return data
-        .filter((row) => row && typeof row.id === "string")
-        .map((row) => ({ id: row.id, qty: Math.floor(Number(row.qty)) }))
-        .filter((row) => Number.isFinite(row.qty) && row.qty > 0);
-    } catch (error) {
-      return [];
-    }
+function write(items) {
+  localStorage.setItem(KEY, JSON.stringify(items));
+  window.dispatchEvent(new CustomEvent("cart:change"));
+}
+
+export function getCart() {
+  return read();
+}
+
+export function cartCount() {
+  return read().reduce((sum, item) => sum + (Number(item.qty) || 0), 0);
+}
+
+export function addToCart({ id, size, color, qty = 1 }) {
+  const items = read();
+  const amount = Math.max(1, Math.min(MAX_QTY, Number(qty) || 1));
+  const existing = items.find((item) => item.id === id && item.size === size && item.color === color);
+  let capped = false;
+  if (existing) {
+    const next = existing.qty + amount;
+    capped = next > MAX_QTY;
+    existing.qty = Math.min(MAX_QTY, next);
+  } else {
+    items.push({ id, size, color, qty: amount });
   }
+  write(items);
+  return { capped };
+}
 
-  function write(items) {
-    localStorage.setItem(KEY, JSON.stringify(items));
-    window.dispatchEvent(new CustomEvent("cart:change"));
+export function setQty(id, size, color, qty) {
+  const next = Math.floor(Number(qty));
+  if (!Number.isFinite(next) || next <= 0) {
+    removeLine(id, size, color);
+    return;
   }
+  const items = read().map((item) =>
+    item.id === id && item.size === size && item.color === color ? { ...item, qty: Math.min(MAX_QTY, next) } : item
+  );
+  write(items);
+}
 
-  function product(id) {
-    return window.SHOP.products.find((item) => item.id === id) || null;
-  }
+export function removeLine(id, size, color) {
+  write(read().filter((item) => !(item.id === id && item.size === size && item.color === color)));
+}
 
-  function detailed(items) {
-    return items
-      .map((row) => {
-        const item = product(row.id);
-        if (!item || item.stock <= 0) return null;
-        const qty = Math.min(row.qty, item.stock);
-        if (qty <= 0) return null;
-        return Object.assign({}, item, { qty: qty, line: round2(item.price * qty) });
-      })
-      .filter(Boolean);
-  }
+export function clearCart() {
+  write([]);
+}
 
-  function lines() {
-    const items = read();
-    const next = detailed(items);
-    const changed =
-      next.length !== items.length ||
-      next.some((line, index) => items[index].id !== line.id || items[index].qty !== line.qty);
-    if (changed) {
-      write(next.map((line) => ({ id: line.id, qty: line.qty })));
-    }
-    return next;
-  }
+export function cartLines() {
+  return getCart()
+    .map((line) => {
+      const product = getProduct(line.id);
+      if (!product) return null;
+      const color = product.colors.find((item) => item.id === line.color) || product.colors[0];
+      return { ...line, product, color, lineTotal: product.price * line.qty };
+    })
+    .filter(Boolean);
+}
 
-  window.formatEuro = function formatEuro(value) {
-    return new Intl.NumberFormat("it-IT", {
-      style: "currency",
-      currency: "EUR",
-    }).format(value);
+export function shippingCost(subtotal, method = "standard") {
+  if (subtotal <= 0) return 0;
+  if (method === "express") return EXPRESS_SHIPPING;
+  return subtotal >= FREE_SHIPPING_FROM ? 0 : STANDARD_SHIPPING;
+}
+
+export function cartTotals(method = "standard") {
+  const lines = cartLines();
+  const subtotal = lines.reduce((sum, line) => sum + line.lineTotal, 0);
+  const shipping = shippingCost(subtotal, method);
+  return {
+    lines,
+    subtotal,
+    shipping,
+    total: subtotal + shipping,
+    count: lines.reduce((sum, line) => sum + line.qty, 0),
   };
-
-  window.quote = function quote(subtotal, method, payment) {
-    const shop = window.SHOP;
-    let shipping = 0;
-    if (subtotal > 0) {
-      shipping = method === "express" ? shop.shipping.express : subtotal >= shop.freeShippingFrom ? 0 : shop.shipping.standard;
-    }
-    const cod = payment === "contrassegno" && subtotal > 0 ? shop.codFee : 0;
-    return {
-      subtotal: round2(subtotal),
-      shipping: round2(shipping),
-      cod: round2(cod),
-      total: round2(subtotal + shipping + cod),
-    };
-  };
-
-  window.Cart = {
-    lines: lines,
-    count: function count() {
-      return lines().reduce((sum, line) => sum + line.qty, 0);
-    },
-    subtotal: function subtotal() {
-      return round2(lines().reduce((sum, line) => sum + line.line, 0));
-    },
-    add: function add(id, qty) {
-      const item = product(id);
-      const amount = Math.max(1, Math.floor(Number(qty) || 1));
-      if (!item) return { ok: false, message: "Prodotto non trovato." };
-      if (item.stock <= 0) return { ok: false, message: "Questo pezzo è esaurito." };
-      const items = read();
-      const row = items.find((entry) => entry.id === id);
-      const nextQty = (row ? row.qty : 0) + amount;
-      if (nextQty > item.stock) {
-        return { ok: false, message: "Disponibili solo " + item.stock + " pezzi." };
-      }
-      if (row) row.qty = nextQty;
-      else items.push({ id: id, qty: amount });
-      write(items);
-      return { ok: true, message: item.name + " aggiunto al carrello." };
-    },
-    setQty: function setQty(id, qty) {
-      const item = product(id);
-      if (!item) return;
-      const items = read().filter((entry) => entry.id !== id);
-      const nextQty = Math.floor(Number(qty) || 0);
-      if (nextQty > 0 && item.stock > 0) {
-        items.push({ id: id, qty: Math.min(nextQty, item.stock) });
-      }
-      write(items);
-    },
-    remove: function remove(id) {
-      write(read().filter((entry) => entry.id !== id));
-    },
-    clear: function clear() {
-      write([]);
-    },
-  };
-})();
+}

@@ -3,114 +3,112 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Checkout — Banco 50</title>
-    <meta name="description" content="Checkout dimostrativo Banco 50: dati di spedizione e riepilogo ordine, senza addebito." />
-    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <title>Checkout — Mercury Search</title>
+    <meta name="description" content="Checkout dimostrativo Mercury Search. Nessun pagamento viene addebitato." />
+    <meta name="theme-color" content="#121212" />
+    <link rel="icon" href="assets/favicon.svg?v=mercurio" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@300;400;500;600&family=Syne:wght@600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css?v=20261026a" />
   </head>
   <body>
     <a class="skip-link" href="#contenuto">Vai al contenuto</a>
     <header class="site-header">
       <div class="topbar">
-        <p>Spedizione gratis da 79 €</p>
-        <p>Recesso 14 giorni</p>
-        <p>Garanzia legale 24 mesi</p>
+        <p data-shipping-note>Spedizione gratuita oltre 180 €</p>
+        <a href="resi/">Reso gratuito entro 14 giorni</a>
+        <p>Collezione 06</p>
       </div>
       <div class="header-inner">
-        <a class="logo" href="index.html" aria-label="Banco 50 — Home">
-          <span class="logo-mark">50</span>
-          <span class="logo-text"><strong>Banco 50</strong><small>Ricambi motorini</small></span>
+        <a class="logo" href="home.html" aria-label="Mercury Search — Home">
+          <img class="logo-mark" src="assets/mark.svg?v=mercurio" alt="" width="34" height="34" />
+          <span class="logo-text">Mercury Search</span>
         </a>
         <nav class="main-nav" aria-label="Navigazione principale">
-          <a href="catalogo.html">Catalogo</a>
-          <a href="carrello.html">Carrello</a>
-          <a href="contatti.html">Assistenza</a>
-          <a href="resi.html">Resi</a>
+          <a data-nav href="negozio.html">Negozio</a>
+          <a data-nav href="old-school/">Old School</a>
+          <a data-nav href="lab.html">Lab Custom</a>
+          <a data-nav href="negozio.html?cat=Profumi">Profumi</a>
+          <a data-nav href="negozio.html?cat=Vestiti%20da%20sposa">Sposa</a>
+          <a data-nav href="marchio.html">Il marchio</a>
         </nav>
-        <a class="cart-link" href="carrello.html" style="margin-left: auto">
+        <form class="header-search" action="negozio.html" method="get" role="search">
+          <label class="visually-hidden" for="header-query">Cerca nella collezione</label>
+          <input id="header-query" type="search" name="q" placeholder="Cerca un capo" autocomplete="off" />
+          <button type="submit" aria-label="Cerca"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="1.8" /><path d="M16.5 16.5 21 21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg></button>
+        </form>
+        <button class="cart-link" type="button" id="open-cart" aria-label="Apri il carrello">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8z" fill="none" stroke="currentColor" stroke-width="1.6" /><path d="M9 8V7a3 3 0 0 1 6 0v1" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
           <span class="cart-word">Carrello</span>
           <span class="cart-count" data-cart-count>0</span>
-        </a>
-        <button class="menu-toggle" type="button" aria-label="Apri menu" aria-expanded="false" aria-controls="mobile-nav">
-          <span></span><span></span><span></span>
         </button>
+        <button class="menu-toggle" type="button" aria-label="Apri menu" aria-expanded="false" aria-controls="mobile-nav"><span></span><span></span><span></span></button>
       </div>
       <nav id="mobile-nav" class="mobile-nav" aria-label="Menu mobile" hidden>
-        <a href="catalogo.html">Catalogo</a>
+        <form class="mobile-search" action="negozio.html" method="get" role="search">
+          <label class="visually-hidden" for="mobile-query">Cerca nella collezione</label>
+          <input id="mobile-query" type="search" name="q" placeholder="Cerca un capo" autocomplete="off" />
+          <button type="submit">Cerca</button>
+        </form>
+        <a data-nav href="negozio.html">Negozio</a>
+        <a data-nav href="old-school/">Old School</a>
+        <a data-nav href="lab.html">Lab Custom</a>
+        <a data-nav href="negozio.html?cat=Profumi">Profumi</a>
+        <a data-nav href="negozio.html?cat=Vestiti%20da%20sposa">Sposa</a>
+        <a data-nav href="marchio.html">Il marchio</a>
+        <a href="resi/">Resi</a>
         <a href="carrello.html">Carrello</a>
-        <a href="contatti.html">Assistenza</a>
-        <a href="resi.html">Resi</a>
       </nav>
     </header>
-    <main id="contenuto" class="page">
-      <div id="checkout-flow">
-        <header class="page-head">
-          <p class="eyebrow">Checkout</p>
-          <h1>Dati e pagamento</h1>
-        </header>
-        <div class="empty-panel" id="checkout-empty" hidden>
-          <h2>Non c’è niente da spedire</h2>
-          <p>Aggiungi un ricambio al carrello prima del checkout.</p>
-          <a class="cta" href="catalogo.html">Vai al catalogo</a>
-        </div>
-        <div class="checkout-grid">
-          <form id="checkout-form" class="checkout-form-wrap">
-            <div class="form-grid">
-              <label class="field">Nome<input name="nome" autocomplete="given-name" required minlength="2" /></label>
-              <label class="field">Cognome<input name="cognome" autocomplete="family-name" required minlength="2" /></label>
-              <label class="field">Email<input name="email" type="email" autocomplete="email" required /></label>
-              <label class="field">Telefono<input name="telefono" type="tel" autocomplete="tel" pattern="^$|^[+0-9 ]{6,20}$" /></label>
-              <label class="field field-full">Indirizzo<input name="indirizzo" autocomplete="address-line1" required minlength="5" /></label>
-              <label class="field">CAP<input name="cap" inputmode="numeric" autocomplete="postal-code" required pattern="[0-9]{5}" /></label>
-              <label class="field">Città<input name="citta" autocomplete="address-level2" required minlength="2" /></label>
-              <label class="field">Provincia<input name="provincia" autocomplete="address-level1" required pattern="[A-Za-z]{2}" maxlength="2" placeholder="BS" /></label>
-              <label class="field field-full">Note<textarea name="note" rows="3"></textarea></label>
-            </div>
-            <fieldset>
-              <legend>Spedizione</legend>
-              <div class="choice-grid">
-                <label class="choice"><input type="radio" name="spedizione" value="standard" checked /> <span>Standard<small>6,90 €, gratis da 79 €</small></span></label>
-                <label class="choice"><input type="radio" name="spedizione" value="express" /> <span>Express 24/48h<small>12,90 €</small></span></label>
-              </div>
-            </fieldset>
-            <fieldset>
-              <legend>Pagamento</legend>
-              <div class="choice-grid">
-                <label class="choice"><input type="radio" name="pagamento" value="carta" checked /> <span>Carta<small>Simulata, nessun addebito</small></span></label>
-                <label class="choice"><input type="radio" name="pagamento" value="bonifico" /> <span>Bonifico<small>Coordinate solo in un negozio attivo</small></span></label>
-                <label class="choice"><input type="radio" name="pagamento" value="contrassegno" /> <span>Contrassegno<small>+ 3,00 €</small></span></label>
-              </div>
-            </fieldset>
-            <p class="demo-note">Ambiente dimostrativo: confermando non viene addebitato alcun importo e l’ordine non viene trasmesso.</p>
-            <button class="cta" type="submit">Conferma ordine</button>
-          </form>
-          <aside id="checkout-summary"></aside>
-        </div>
-      </div>
-      <div id="order-done" hidden></div>
+    <main id="contenuto" class="wrap">
+      <header class="page-head">
+        <p class="eyebrow">Checkout</p>
+        <h1 id="checkout-heading">Conferma l'ordine</h1>
+      </header>
+      <div id="checkout-root"></div>
     </main>
     <footer class="site-footer">
-      <div class="footer-grid">
+      <div class="wrap footer-grid">
         <div>
-          <a class="logo" href="index.html"><span class="logo-mark">50</span><span class="logo-text"><strong>Banco 50</strong><small>Ricambi motorini</small></span></a>
-          <p>Il checkout non addebita pagamenti.</p>
+          <a class="footer-logo" href="home.html">Mercury Search</a>
+          <p>Abbigliamento tra sartoria e strada. Pochi capi, taglio largo, metallo spento.</p>
         </div>
         <div>
-          <h2>Servizio</h2>
-          <a href="resi.html">Resi e garanzia</a>
-          <a href="contatti.html">Assistenza</a>
+          <h2>Negozio</h2>
+          <ul>
+            <li><a href="negozio.html">Tutti i capi</a></li>
+            <li><a href="old-school/">Old School</a></li>
+            <li><a href="lab.html">Mercury Search Lab Custom</a></li>
+            <li><a href="negozio.html?cat=Profumi">Profumi</a></li>
+            <li><a href="negozio.html?cat=Vestiti%20da%20sposa">Vestiti da sposa</a></li>
+            <li><a href="negozio.html?cat=Giacche">Giacche</a></li>
+            <li><a href="carrello.html">Carrello</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Casa</h2>
+          <ul>
+            <li><a href="index.html">Ingresso</a></li>
+            <li><a href="marchio.html">Il marchio</a></li>
+            <li><a href="resi/">Resi</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Contatti</h2>
+          <ul>
+            <li><a href="mailto:smlbresciani@gmail.com">Email · smlbresciani@gmail.com</a></li>
+            <li><a href="https://wa.me/393336196356" target="_blank" rel="noopener noreferrer">WhatsApp · +39 333 619 6356</a></li>
+            <li><a href="https://www.instagram.com/MercurySearch" target="_blank" rel="noopener noreferrer">Instagram · Mercury Search</a></li>
+            <li><a href="https://www.instagram.com/MercurySearch.lab" target="_blank" rel="noopener noreferrer">Instagram · MercurySearch.lab</a></li>
+          </ul>
         </div>
       </div>
-      <p class="copyright">© 2026 Banco 50. Prezzi IVA inclusa.</p>
+      <div class="wrap footer-bottom">
+        <p>© <span data-year>2026</span> Mercury Search. Tutti i diritti riservati.</p>
+        <p>Checkout dimostrativo: nessun pagamento viene addebitato.</p>
+      </div>
     </footer>
-    <script src="js/products.js"></script>
-    <script src="js/art.js"></script>
-    <script src="js/store.js"></script>
-    <script src="js/ui.js"></script>
-    <script src="js/common.js"></script>
-    <script src="js/checkout.js"></script>
+    <script type="module" src="js/checkout.js"></script>
   </body>
 </html>

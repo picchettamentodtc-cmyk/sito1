@@ -1,85 +1,60 @@
-(function () {
-  function esc(value) {
-    return String(value).replace(/[&<>"']/g, function (char) {
-      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[char];
-    });
-  }
+import { formatPrice, variantLabel } from "./products.js";
 
-  function category(id) {
-    const found = window.SHOP.categories.find((item) => item.id === id);
-    return found ? found.label : id;
-  }
+export function escapeHtml(value) {
+  return String(value).replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]);
+}
 
-  function modelName(id) {
-    const model = window.SHOP.models.find((item) => item.id === id);
-    if (!model) return id;
-    const brand = window.SHOP.brands.find((item) => item.id === model.brand);
-    return (brand ? brand.label + " " : "") + model.label;
-  }
+function safeHex(hex) {
+  return /^#[0-9a-fA-F]{6}$/.test(hex) ? hex : "#161616";
+}
 
-  function compatPreview(product) {
-    const names = product.compat.map(modelName);
-    if (names.length <= 2) return names.join(" · ");
-    return names.slice(0, 2).join(" · ") + " · +" + (names.length - 2);
-  }
+export function productCard(product) {
+  const color = product.colors[0];
+  const label = variantLabel(product);
+  const only = product.sizes.length === 1;
+  const sizes = product.sizes
+    .map(
+      (size) =>
+        `<button type="button" class="size-pick${only ? " is-selected" : ""}" data-size="${escapeHtml(size)}" role="radio" aria-checked="${only ? "true" : "false"}">${escapeHtml(size)}</button>`
+    )
+    .join("");
+  const tag = product.tag ? `<span class="badge">${escapeHtml(product.tag)}</span>` : "";
+  return `<article class="card">
+    <a class="card-link" href="prodotto.html?id=${encodeURIComponent(product.id)}">
+      <div class="card-media">
+        ${tag}
+        <img src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}" width="900" height="1200" />
+      </div>
+      <div class="card-info">
+        <div class="card-row">
+          <h3>${escapeHtml(product.name)}</h3>
+          <p class="price">${formatPrice(product.price)}</p>
+        </div>
+        <p class="card-sub"><span class="dot" style="background:${safeHex(color.hex)}"></span>${escapeHtml(product.category)} · ${escapeHtml(color.name)}</p>
+      </div>
+    </a>
+    <form class="quick-add" data-id="${escapeHtml(product.id)}">
+      <div class="size-picks" role="radiogroup" aria-label="${escapeHtml(label)}">${sizes}</div>
+      <p class="quick-error" hidden></p>
+      <button type="submit" class="btn btn-small">Aggiungi</button>
+    </form>
+  </article>`;
+}
 
-  function stock(product) {
-    if (product.stock <= 0) return '<p class="stock is-out">Esaurito</p>';
-    if (product.stock <= 5) return '<p class="stock is-low">Ultimi ' + product.stock + " pezzi</p>";
-    return '<p class="stock is-ok">Disponibile</p>';
-  }
-
-  function card(product) {
-    const soldOut = product.stock <= 0;
-    const badge = soldOut ? "Esaurito" : product.badge;
-    const oldPrice = product.oldPrice
-      ? '<span class="price-old">' + esc(window.formatEuro(product.oldPrice)) + "</span>"
-      : "";
-    return (
-      '<article class="product-card">' +
-      '<a class="product-media" href="prodotto.html?id=' +
-      esc(product.id) +
-      '">' +
-      window.PartArt.render(product.art) +
-      (badge ? '<span class="product-badge">' + esc(badge) + "</span>" : "") +
-      "</a>" +
-      '<div class="product-body">' +
-      '<p class="product-cat">' +
-      esc(category(product.category)) +
-      " · " +
-      esc(product.sku) +
-      "</p>" +
-      "<h3><a href=\"prodotto.html?id=" +
-      esc(product.id) +
-      '">' +
-      esc(product.name) +
-      "</a></h3>" +
-      '<p class="compat-line">' +
-      esc(compatPreview(product)) +
-      "</p>" +
-      stock(product) +
-      '<div class="price-row"><span class="price">' +
-      esc(window.formatEuro(product.price)) +
-      "</span>" +
-      oldPrice +
-      "</div>" +
-      '<button class="add-btn" type="button" data-add="' +
-      esc(product.id) +
-      '"' +
-      (soldOut ? " disabled" : "") +
-      ">" +
-      (soldOut ? "Esaurito" : "Aggiungi al carrello") +
-      "</button>" +
-      "</div></article>"
-    );
-  }
-
-  window.ShopUI = {
-    esc: esc,
-    category: category,
-    modelName: modelName,
-    compatPreview: compatPreview,
-    stock: stock,
-    card: card,
-  };
-})();
+export function cartLineMarkup(line) {
+  const key = `${line.id}__${line.size}__${line.color.id}`;
+  return `<article class="cart-line">
+    <a href="prodotto.html?id=${encodeURIComponent(line.id)}"><img src="${escapeHtml(line.product.image)}" alt="" width="96" height="128" /></a>
+    <div>
+      <h2><a href="prodotto.html?id=${encodeURIComponent(line.id)}">${escapeHtml(line.product.name)}</a></h2>
+      <p class="card-sub">${escapeHtml(line.color.name)} · ${escapeHtml(line.size)}</p>
+      <button type="button" class="text-btn" data-cart-action="remove" data-id="${escapeHtml(line.id)}" data-size="${escapeHtml(line.size)}" data-color="${escapeHtml(line.color.id)}">Rimuovi</button>
+    </div>
+    <div class="qty">
+      <button type="button" aria-label="Diminuisci quantità" data-cart-action="dec" data-focus-key="dec__${escapeHtml(key)}" data-id="${escapeHtml(line.id)}" data-size="${escapeHtml(line.size)}" data-color="${escapeHtml(line.color.id)}">−</button>
+      <input data-qty-input aria-label="Quantità" data-id="${escapeHtml(line.id)}" data-size="${escapeHtml(line.size)}" data-color="${escapeHtml(line.color.id)}" type="number" min="1" max="5" value="${line.qty}" />
+      <button type="button" aria-label="Aumenta quantità" data-cart-action="inc" data-focus-key="inc__${escapeHtml(key)}" data-id="${escapeHtml(line.id)}" data-size="${escapeHtml(line.size)}" data-color="${escapeHtml(line.color.id)}">+</button>
+    </div>
+    <p class="line-price">${formatPrice(line.lineTotal)}</p>
+  </article>`;
+}
