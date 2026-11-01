@@ -17,4 +17,4 @@ Categorie dedicate: Profumi e Vestiti da sposa, dentro il negozio.
 
 Il checkout non invia ordini e non addebita pagamenti. Per una richiesta vera: `smlbresciani@gmail.com`.
 
-In locale: `python3 -m http.server`.
+In locale, dalla cartella del sito: `python3 server.py`. Resta su http://localhost:8765/ e la radice è `index.html`. L’iscrizione alle notifiche è `POST /api/iscrizioni` e viene salvata in `data/iscrizioni.json`, che il server non pubblica.

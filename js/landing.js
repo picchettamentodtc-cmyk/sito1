@@ -119,7 +119,7 @@ const avvisiForm = document.querySelector("#avvisi-form");
 if (avvisiForm) {
   const status = avvisiForm.querySelector("[data-status]");
   const input = avvisiForm.querySelector('input[name="email"]');
-  const shop = "smlbresciani@gmail.com";
+  const submit = avvisiForm.querySelector('button[type="submit"]');
   const storageKey = "mercury-search-avvisi";
 
   function remembered() {
@@ -138,10 +138,10 @@ if (avvisiForm) {
   const previous = remembered();
   if (previous) {
     input.value = previous;
-    setStatus(`Iscrizione ricordata in questo browser per ${previous}. Reinvia per mandarla di nuovo.`);
+    setStatus(`Email ricordata in questo browser: ${previous}. Reinvia per registrarla sul negozio.`);
   }
 
-  avvisiForm.addEventListener("submit", (event) => {
+  avvisiForm.addEventListener("submit", async (event) => {
     event.preventDefault();
     const email = input.value.trim();
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -151,14 +151,33 @@ if (avvisiForm) {
       return;
     }
     input.removeAttribute("aria-invalid");
+    submit.disabled = true;
     try {
-      localStorage.setItem(storageKey, email);
+      const response = await fetch("/api/iscrizioni", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      let payload = {};
+      try {
+        payload = await response.json();
+      } catch {
+        payload = {};
+      }
+      if (!response.ok || !payload.ok) {
+        setStatus(payload.error || "Iscrizione non riuscita. Riprova.", true);
+        return;
+      }
+      try {
+        localStorage.setItem(storageKey, email);
+      } catch {
+        /* il browser può bloccare il salvataggio locale */
+      }
+      setStatus(payload.message || "Iscrizione registrata.");
     } catch {
-      /* il browser può bloccare il salvataggio locale */
+      setStatus("Il server non risponde. Riprova tra poco.", true);
+    } finally {
+      submit.disabled = false;
     }
-    const subject = "Iscrizione notifiche Mercury Search";
-    const body = `Voglio ricevere le notifiche sui nuovi capi e sugli aggiornamenti del negozio.\nEmail: ${email}`;
-    setStatus(`Messaggio pronto per ${shop}. Invialo dalla tua mail per completare l'iscrizione.`);
-    window.location.href = `mailto:${shop}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   });
 }
