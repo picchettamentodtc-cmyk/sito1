@@ -19,6 +19,7 @@ const openButton = document.querySelector("#open-filters");
 const leads = {
   Profumi: "Estratti della casa. Formati da 30, 50 e 100 ml. Il sigillo deve restare integro per un reso.",
   "Vestiti da sposa": "Abiti minimi per un giorno solo, nel taglio Mercury Search. Le modifiche escludono il reso.",
+  "Pellicce vere": "Pellicce vere della casa. Nessun marchio, nessun logo.",
 };
 
 function clamp(value, min, max) {

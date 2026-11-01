@@ -9,9 +9,11 @@ const bianco = { id: "bianco", name: "Bianco", hex: "#f5f5f5" };
 const cammello = { id: "cammello", name: "Cammello", hex: "#c4a574" };
 const denim = { id: "denim", name: "Denim", hex: "#6d88a8" };
 const giallo = { id: "giallo", name: "Giallo", hex: "#e2b100" };
+const miele = { id: "miele", name: "Miele", hex: "#8a6232" };
 
 export const categoryOrder = [
   "Cappotti",
+  "Pellicce vere",
   "Giacche",
   "Felpe",
   "Maglie",
@@ -298,6 +300,45 @@ export const products = [
     tag: "",
     description: "Abito da sposa con gonna ampia e corpetto strutturato. Il volume è architettonico, il colore resta avorio.",
     details: ["Corpetto strutturato", "Gonna ampia", "Bottoni coperti", "Prova in atelier su appuntamento"],
+  },
+  {
+    id: "pelliccia-nera",
+    name: "Pelliccia Nera",
+    price: 1280,
+    category: "Pellicce vere",
+    colors: [nero],
+    sizes: ["S", "M", "L"],
+    image: "assets/products/pelliccia-nera.jpg",
+    featured: true,
+    tag: "Pelliccia",
+    description: "Pelliccia vera della casa, lunga e nera. Collo ampio, manica intera, senza marchio e senza logo.",
+    details: ["Pelliccia vera", "Senza logo", "Lunghezza sotto il ginocchio", "Fodera nera"],
+  },
+  {
+    id: "pelliccia-miele",
+    name: "Pelliccia Miele",
+    price: 1420,
+    category: "Pellicce vere",
+    colors: [miele],
+    sizes: ["S", "M", "L"],
+    image: "assets/products/pelliccia-miele.jpg",
+    featured: true,
+    tag: "Pelliccia",
+    description: "Pelliccia vera color miele, al ginocchio, con cintura dello stesso pelo. Nessun marchio, nessun logo.",
+    details: ["Pelliccia vera", "Senza logo", "Cintura in pelo", "Colore miele"],
+  },
+  {
+    id: "pelliccia-corta",
+    name: "Pelliccia Corta",
+    price: 980,
+    category: "Pellicce vere",
+    colors: [nero],
+    sizes: ["XS", "S", "M", "L"],
+    image: "assets/products/pelliccia-corta.jpg",
+    featured: false,
+    tag: "Pelliccia",
+    description: "Pelliccia vera corta, nera, taglio al punto vita. Senza marchio e senza logo.",
+    details: ["Pelliccia vera", "Senza logo", "Taglio corto", "Collo ampio"],
   },
 ];
 

@@ -25,6 +25,10 @@ function markNav() {
       if (here.pathname.includes("/old-school")) link.setAttribute("aria-current", "page");
       return;
     }
+    if (url.pathname.includes("/pellicce-vere")) {
+      if (here.pathname.includes("/pellicce-vere")) link.setAttribute("aria-current", "page");
+      return;
+    }
     const linkFile = url.pathname.split("/").pop() || "index.html";
     if (linkFile !== hereFile) return;
     const linkCat = url.searchParams.get("cat");
