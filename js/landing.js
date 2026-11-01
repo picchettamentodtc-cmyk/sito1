@@ -114,3 +114,51 @@ if (root) {
   show(0);
   start();
 }
+
+const avvisiForm = document.querySelector("#avvisi-form");
+if (avvisiForm) {
+  const status = avvisiForm.querySelector("[data-status]");
+  const input = avvisiForm.querySelector('input[name="email"]');
+  const shop = "smlbresciani@gmail.com";
+  const storageKey = "mercury-search-avvisi";
+
+  function remembered() {
+    try {
+      return localStorage.getItem(storageKey) || "";
+    } catch {
+      return "";
+    }
+  }
+
+  function setStatus(message, error) {
+    status.textContent = message;
+    status.classList.toggle("is-error", Boolean(error));
+  }
+
+  const previous = remembered();
+  if (previous) {
+    input.value = previous;
+    setStatus(`Iscrizione ricordata in questo browser per ${previous}. Reinvia per mandarla di nuovo.`);
+  }
+
+  avvisiForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const email = input.value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      input.setAttribute("aria-invalid", "true");
+      setStatus("Inserisci un'email valida.", true);
+      input.focus();
+      return;
+    }
+    input.removeAttribute("aria-invalid");
+    try {
+      localStorage.setItem(storageKey, email);
+    } catch {
+      /* il browser può bloccare il salvataggio locale */
+    }
+    const subject = "Iscrizione notifiche Mercury Search";
+    const body = `Voglio ricevere le notifiche sui nuovi capi e sugli aggiornamenti del negozio.\nEmail: ${email}`;
+    setStatus(`Messaggio pronto per ${shop}. Invialo dalla tua mail per completare l'iscrizione.`);
+    window.location.href = `mailto:${shop}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+}

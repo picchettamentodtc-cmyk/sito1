@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@300;400;500;600&family=Syne:wght@600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=20261101a" />
+    <link rel="stylesheet" href="styles.css?v=20261101b" />
   </head>
   <body>
     <main class="landing">
@@ -111,6 +111,27 @@
           <p class="visually-hidden" aria-live="polite" data-live></p>
         </div>
         <a class="btn" href="negozio.html">Vai al negozio</a>
+      </div>
+    </section>
+    <section class="avvisi" id="avvisi" aria-label="Iscrizione alle notifiche">
+      <div class="avvisi-inner">
+        <p class="eyebrow">Notifiche</p>
+        <h2>Nuovi capi e aggiornamenti</h2>
+        <p>Iscriviti per sapere quando entra un capo nuovo e quando il negozio cambia. I canali sono quelli già del negozio.</p>
+        <form class="avvisi-form" id="avvisi-form" action="mailto:smlbresciani@gmail.com" method="post" enctype="text/plain" novalidate>
+          <label class="field">
+            <span>Email</span>
+            <input type="email" name="email" autocomplete="email" required aria-describedby="avvisi-status" />
+          </label>
+          <button class="btn" type="submit">Iscriviti</button>
+          <p class="avvisi-status" id="avvisi-status" role="status" data-status></p>
+        </form>
+        <ul class="avvisi-channels">
+          <li><a href="mailto:smlbresciani@gmail.com?subject=Iscrizione%20notifiche%20Mercury%20Search&amp;body=Voglio%20ricevere%20le%20notifiche%20sui%20nuovi%20capi%20e%20sugli%20aggiornamenti%20del%20negozio.">Email · smlbresciani@gmail.com</a></li>
+          <li><a href="https://wa.me/393336196356?text=Voglio%20le%20notifiche%20sui%20nuovi%20capi%20e%20sugli%20aggiornamenti%20di%20Mercury%20Search." target="_blank" rel="noopener noreferrer">WhatsApp · +39 333 619 6356</a></li>
+          <li><a href="https://www.instagram.com/MercurySearch" target="_blank" rel="noopener noreferrer">Instagram · Mercury Search</a></li>
+          <li><a href="https://www.instagram.com/MercurySearch.lab" target="_blank" rel="noopener noreferrer">Instagram · MercurySearch.lab</a></li>
+        </ul>
       </div>
     </section>
     <section class="voce" id="voce" aria-label="Descrizione streetwear">
