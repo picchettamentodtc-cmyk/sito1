@@ -227,17 +227,68 @@ h1, h2, h3, p { margin: 0; }
 .landing-shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(7, 7, 7, 0.92), rgba(7, 7, 7, 0.35) 78%); }
 .landing-photo { filter: contrast(1.2) saturate(0.7); }
 .landing-pattern { position: absolute; inset: 0; background-image: url("assets/pattern-light.svg?v=norect"); background-size: 140px 140px; opacity: 0.7; pointer-events: none; }
-.landing-content { position: relative; z-index: 1; padding: 10vh 7vw 12vh; max-width: 46rem; width: 100%; min-width: 0; }
+.landing-content { position: relative; z-index: 1; padding: 8vh 7vw 10vh; max-width: min(72rem, 94vw); width: 100%; min-width: 0; }
 .landing-mark { width: 56px; height: 56px; margin-bottom: 0.85rem; }
 .landing-kicker { font-family: var(--display); letter-spacing: 0.18em; text-transform: uppercase; font-size: 0.75rem; color: var(--gold); }
 .landing h1 {
+  position: relative;
   font-family: var(--display);
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  font-size: clamp(3.2rem, 9vw, 7rem);
-  line-height: 0.88;
-  margin: 0.5rem 0 0.8rem;
+  font-size: clamp(4.4rem, 12.4vw, 9.6rem);
+  line-height: 0.8;
+  margin: 0.35rem 0 1.35rem;
+  max-width: 100%;
+}
+.paint-drips { position: absolute; inset: 0; pointer-events: none; overflow: visible; }
+.paint-drips i {
+  --paint: var(--bone);
+  position: absolute;
+  top: var(--top);
+  left: var(--x);
+  width: var(--w);
+  height: var(--h);
+  background: linear-gradient(180deg, var(--paint), var(--paint) 62%, transparent);
+  border-radius: 1px 1px 20px 20px;
+  transform-origin: top center;
+  animation: paint-slide 6.8s cubic-bezier(0.45, 0.04, 0.55, 1) infinite;
+  animation-delay: var(--delay);
+}
+.paint-drips i::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  width: calc(var(--w) + 7px);
+  height: calc(var(--w) + 9px);
+  margin-left: calc((var(--w) + 7px) / -2);
+  border-radius: 50%;
+  background: var(--paint);
+  animation: paint-bead 6.8s cubic-bezier(0.45, 0.04, 0.55, 1) infinite;
+  animation-delay: var(--delay);
+}
+.paint-drips i.acid { --paint: var(--gold); }
+.paint-drips i:nth-child(1) { --x: 7%; --top: 36%; --h: 26px; --w: 5px; --delay: 0s; }
+.paint-drips i:nth-child(2) { --x: 24%; --top: 38%; --h: 54px; --w: 8px; --delay: 1.4s; }
+.paint-drips i:nth-child(3) { --x: 46%; --top: 34%; --h: 18px; --w: 4px; --delay: 2.7s; }
+.paint-drips i:nth-child(4) { --x: 14%; --top: 94%; --h: 34px; --w: 6px; --delay: 0.7s; }
+.paint-drips i:nth-child(5) { --x: 39%; --top: 96%; --h: 48px; --w: 9px; --delay: 2.1s; }
+.paint-drips i:nth-child(6) { --x: 58%; --top: 92%; --h: 22px; --w: 5px; --delay: 3.5s; }
+.paint-drips i:nth-child(7) { --x: 33%; --top: 37%; --h: 36px; --w: 6px; --delay: 3.1s; }
+.paint-drips i:nth-child(8) { --x: 72%; --top: 95%; --h: 40px; --w: 7px; --delay: 0.4s; }
+@keyframes paint-slide {
+  0% { transform: scaleY(0.12); opacity: 0; }
+  12% { opacity: 0.95; }
+  46% { transform: scaleY(1); opacity: 0.95; }
+  74% { transform: scaleY(1); opacity: 0.55; }
+  100% { transform: scaleY(0.2); opacity: 0; }
+}
+@keyframes paint-bead {
+  0%, 40% { transform: translateY(0) scale(0.45); opacity: 0; }
+  50% { transform: translateY(2px) scale(1); opacity: 1; }
+  82% { transform: translateY(36px) scale(0.8); opacity: 0.85; }
+  100% { transform: translateY(62px) scale(0.35); opacity: 0; }
 }
 .landing-tag { font-family: var(--display); font-style: normal; text-transform: uppercase; letter-spacing: 0.08em; font-size: clamp(1rem, 2.2vw, 1.45rem); margin-bottom: 1.6rem; color: var(--gold); }
 .landing .btn { background: var(--gold); color: var(--ink); border-color: var(--gold); }
@@ -645,4 +696,7 @@ input[type="number"] { appearance: textfield; -moz-appearance: textfield; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; scroll-behavior: auto !important; }
+  .paint-drips i, .paint-drips i::after { animation: none !important; opacity: 0.9; }
+  .paint-drips i { transform: none; }
+  .paint-drips i::after { transform: translateY(0) scale(1); }
 }
