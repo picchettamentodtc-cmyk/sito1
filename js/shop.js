@@ -20,6 +20,7 @@ const leads = {
   Profumi: "Estratti della casa. Formati da 30, 50 e 100 ml. Il sigillo deve restare integro per un reso.",
   "Vestiti da sposa": "Abiti minimi per un giorno solo, nel taglio Mercury Search. Le modifiche escludono il reso.",
   "Pellicce vere": "Pellicce vere della casa. Nessun marchio, nessun logo.",
+  "Valerio Moda": "Stagione Valerio Moda. Abiti su misura, taglio sul corpo.",
 };
 
 function clamp(value, min, max) {

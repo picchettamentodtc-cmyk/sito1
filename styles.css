@@ -414,6 +414,22 @@ h1, h2, h3, p { margin: 0; }
 .pellicce-entry .eyebrow { color: var(--gold); }
 .pellicce-entry p { max-width: 36rem; }
 .pellicce-entry .btn { background: var(--gold); color: var(--ink); border-color: var(--gold); }
+.valerio { border: 3px solid var(--bone); padding: 1.6rem 1.3rem 1.2rem; margin-bottom: 3rem; background-color: rgba(7, 7, 7, 0.55); background-image: repeating-linear-gradient(90deg, transparent, transparent 14px, rgba(230, 225, 214, 0.08) 14px, rgba(230, 225, 214, 0.08) 15px); }
+.valerio h1, .valerio-entry h2 { font-family: var(--display); font-weight: 700; letter-spacing: 0.02em; text-transform: uppercase; line-height: 0.82; }
+.valerio h1 { font-size: clamp(3rem, 9vw, 6.2rem); }
+.valerio .lede { max-width: 36rem; }
+.valerio .lede a { text-decoration: underline; text-underline-offset: 0.22em; }
+.valerio-entry {
+  background-color: rgba(7, 7, 7, 0.62);
+  color: var(--bone);
+  border-top: 2px solid var(--bone);
+  border-bottom: 2px solid var(--bone);
+}
+.valerio-entry-inner { width: min(1440px, calc(100% - 3rem)); margin: 0 auto; padding: 3.2rem 0; display: grid; gap: 0.85rem; justify-items: start; }
+.valerio-entry h2 { font-size: clamp(2.4rem, 6vw, 4.6rem); max-width: 12ch; }
+.valerio-entry .eyebrow { color: var(--gold); }
+.valerio-entry p { max-width: 36rem; }
+.valerio-entry .btn { background: transparent; color: var(--bone); border-color: var(--gold); }
 .avvisi {
   color: var(--bone);
   background-color: rgba(7, 7, 7, 0.62);
@@ -673,7 +689,7 @@ input[type="number"] { appearance: textfield; -moz-appearance: textfield; }
   .landing-shade { background: linear-gradient(180deg, rgba(7, 7, 7, 0.2), rgba(7, 7, 7, 0.88)); }
   .landing-content { padding-left: 1.25rem; padding-right: 1.25rem; padding-bottom: 4.5rem; }
   .landing-legal { left: 1.25rem; right: auto; }
-  .landing-board-inner, .voce-inner, .history-inner, .pellicce-entry-inner, .avvisi-inner { width: min(1440px, calc(100% - 1.5rem)); }
+  .landing-board-inner, .voce-inner, .history-inner, .pellicce-entry-inner, .avvisi-inner, .valerio-entry-inner { width: min(1440px, calc(100% - 1.5rem)); }
   .avvisi-form { grid-template-columns: 1fr; }
   .landing-carousel { padding: 1rem 0.75rem; }
   .landing-slide img { height: 72vw; min-height: 280px; }

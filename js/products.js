@@ -10,10 +10,12 @@ const cammello = { id: "cammello", name: "Cammello", hex: "#c4a574" };
 const denim = { id: "denim", name: "Denim", hex: "#6d88a8" };
 const giallo = { id: "giallo", name: "Giallo", hex: "#e2b100" };
 const miele = { id: "miele", name: "Miele", hex: "#8a6232" };
+const gessato = { id: "gessato", name: "Gessato", hex: "#cfc8bc" };
 
 export const categoryOrder = [
   "Cappotti",
   "Pellicce vere",
+  "Valerio Moda",
   "Giacche",
   "Felpe",
   "Maglie",
@@ -339,6 +341,45 @@ export const products = [
     tag: "Pelliccia",
     description: "Pelliccia vera corta, nera, taglio al punto vita. Senza marchio e senza logo.",
     details: ["Pelliccia vera", "Senza logo", "Taglio corto", "Collo ampio"],
+  },
+  {
+    id: "valerio-abito-nero",
+    name: "Abito Nero",
+    price: 890,
+    category: "Valerio Moda",
+    colors: [nero],
+    sizes: ["Su misura"],
+    image: "assets/products/valerio-abito-nero.svg",
+    featured: true,
+    tag: "Su misura",
+    description: "Abito su misura Valerio Moda. Giacca due bottoni, pantalone con pince, nero pieno. Il taglio si prende sul corpo.",
+    details: ["Stagione Valerio Moda", "Su misura", "Lana", "Due bottoni"],
+  },
+  {
+    id: "valerio-abito-gessato",
+    name: "Abito Gessato",
+    price: 960,
+    category: "Valerio Moda",
+    colors: [gessato],
+    sizes: ["Su misura"],
+    image: "assets/products/valerio-abito-gessato.svg",
+    featured: true,
+    tag: "Su misura",
+    description: "Abito su misura a gessato chiaro. Spalla naturale, rever stretto, pantalone dritto.",
+    details: ["Stagione Valerio Moda", "Su misura", "Gessato", "Spalla naturale"],
+  },
+  {
+    id: "valerio-giacca",
+    name: "Giacca Spalla Naturale",
+    price: 640,
+    category: "Valerio Moda",
+    colors: [nero],
+    sizes: ["Su misura"],
+    image: "assets/products/valerio-giacca.svg",
+    featured: false,
+    tag: "Su misura",
+    description: "Giacca su misura, spalla senza imbottitura, un bottone, tasche a filo.",
+    details: ["Stagione Valerio Moda", "Su misura", "Un bottone", "Spalla naturale"],
   },
 ];
 
