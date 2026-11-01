@@ -368,8 +368,11 @@ h1, h2, h3, p { margin: 0; }
 .landing-carousel-dots button[aria-current="true"]::after { background: var(--gold); }
 .lab-entry, .lab-hero {
   background-color: #ffffff;
-  background-image: url("assets/pattern-lab.svg");
-  background-size: 220px 220px;
+  background-image:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.78) 38%, rgba(255, 255, 255, 0.28) 68%),
+    url("assets/laboratorio-elegante.jpg?v=atelier");
+  background-size: cover;
+  background-position: center right;
   color: var(--bone);
   border-top: 1px solid var(--gold);
   border-bottom: 1px solid var(--gold);
