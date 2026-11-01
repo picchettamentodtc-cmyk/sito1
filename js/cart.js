@@ -14,7 +14,7 @@ function note(subtotal) {
 function render() {
   const totals = cartTotals("standard");
   if (!totals.lines.length) {
-    root.innerHTML = `<div class="empty"><p>Il carrello è vuoto.</p><a class="btn" href="negozio.html">Vai al negozio</a></div>`;
+    root.innerHTML = `<div class="empty"><p>Il carrello è vuoto. Scegli un capo, la taglia e il colore: la spedizione standard è gratuita da 180 €.</p><a class="btn" href="negozio.html">Vai al negozio</a></div>`;
     return;
   }
   root.innerHTML = `<div class="cart-layout">

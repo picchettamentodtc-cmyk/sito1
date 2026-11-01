@@ -40,7 +40,7 @@ export const products = [
     featured: true,
     tag: "Novità",
     description:
-      "Cappotto in lana vergine, spalla caduta e lunghezza al ginocchio. Due bottoni, volume largo, peso da città.",
+      "Cappotto in lana vergine, spalla caduta e lunghezza al ginocchio. Due bottoni e volume largo: sta aperto sopra la felpa e tiene la piega in città.",
     details: ["100% lana vergine", "Fodera in cupro", "Due bottoni", "Vestibilità ampia"],
   },
   {
@@ -53,7 +53,7 @@ export const products = [
     image: "assets/products/felpa-mass.jpg",
     featured: true,
     tag: "Essenziale",
-    description: "Felpa da uomo senza marchio. Cappuccio, tascone e fondo a costine, in bianco pieno.",
+    description: "Felpa da uomo senza marchio, in cotone pesante e bianco pieno. Cappuccio, tascone e fondo a costine; il bianco si lava a freddo.",
     details: ["Senza logo", "Cappuccio", "Tascone", "Costine"],
   },
   {
@@ -66,7 +66,7 @@ export const products = [
     image: "assets/products/camicia-lamina.jpg",
     featured: false,
     tag: "",
-    description: "Camicia in seta opaca color argento. Colletto aperto, bottoni tono su tono, manica morbida.",
+    description: "Camicia in seta opaca color argento, colletto aperto e bottoni tono su tono. Si porta sulla maglia o chiusa, con la manica morbida. Solo lavaggio a secco.",
     details: ["Seta opaca", "Bottoni coperti dal tono", "Vestibilità rilassata", "Lavare a secco"],
   },
   {
@@ -79,7 +79,7 @@ export const products = [
     image: "assets/products/pantalone-asse.jpg",
     featured: false,
     tag: "",
-    description: "Pantalone da uomo senza marchio, nero, gamba dritta e vita regolare.",
+    description: "Pantalone da uomo senza marchio, nero, gamba dritta e vita regolare. Cade sulla scarpa senza pinces e senza una piega da cerimonia.",
     details: ["Senza logo", "Gamba dritta", "Nero pieno", "Vita regolare"],
   },
   {
@@ -92,7 +92,7 @@ export const products = [
     image: "assets/products/blazer-quadro.jpg",
     featured: true,
     tag: "Icona",
-    description: "Giacca da uomo senza marchio, nera, spalla strutturata e un bottone.",
+    description: "Giacca da uomo senza marchio, nera, spalla strutturata e un bottone. Il rever chiude la linea: sta sulla maglia fine, non su una camicia da cerimonia.",
     details: ["Senza logo", "Nero pieno", "Un bottone", "Rever classico"],
   },
   {
@@ -105,7 +105,7 @@ export const products = [
     image: "assets/products/tee-modulo.jpg",
     featured: false,
     tag: "",
-    description: "T-shirt boxy in jersey compatto color osso. Manica scesa, collo basso, orlo dritto.",
+    description: "T-shirt boxy in jersey compatto color osso, manica scesa e collo basso. L'orlo è dritto e il collo non si sforma: sta sotto la giacca nera.",
     details: ["Jersey compatto", "Manica scesa", "Orlo dritto", "Collo a costina"],
   },
   {
@@ -118,7 +118,7 @@ export const products = [
     image: "assets/products/bomber-velo.jpg",
     featured: false,
     tag: "",
-    description: "Giacca da uomo senza marchio, color cammello, rever largo e lunghezza sotto il fianco.",
+    description: "Giacca da uomo senza marchio, color cammello, rever largo e lunghezza appena sotto il fianco. Scalda il nero del resto del guardaroba senza coprirlo.",
     details: ["Senza logo", "Color cammello", "Rever largo", "Vestibilità morbida"],
   },
   {
@@ -131,7 +131,7 @@ export const products = [
     image: "assets/products/giacca-vento.jpg",
     featured: false,
     tag: "Street",
-    description: "Giacca a vento da strada, senza marchio. Nylon nero, interno giallo, cappuccio e banda chiara sulla manica.",
+    description: "Giacca a vento da strada, senza marchio: nylon nero opaco, interno giallo, cappuccio e banda chiara sulla manica. Il cappuccio entra sotto il cappotto quando piove.",
     details: ["Senza logo", "Nylon", "Cappuccio", "Interno a contrasto"],
   },
   {
@@ -144,7 +144,7 @@ export const products = [
     image: "assets/products/giacca-denim.jpg",
     featured: false,
     tag: "Street",
-    description: "Camicia-giacca in denim, senza marchio. Tasche sul petto, manica rimboccata, da portare aperta.",
+    description: "Camicia-giacca in denim, senza marchio, con tasche sul petto e manica rimboccata. Il colore è già lavato una volta e resta fermo se la porti aperta.",
     details: ["Senza logo", "Denim", "Tasche petto", "Manica rimboccata"],
   },
   {
@@ -157,7 +157,7 @@ export const products = [
     image: "assets/products/giacca-trapunta.jpg",
     featured: true,
     tag: "Street",
-    description: "Bomber trapuntato nero, senza marchio. Zip a vista, volume corto, da mettere sulla felpa.",
+    description: "Bomber trapuntato nero, senza marchio, zip a vista e volume corto. Si mette sulla felpa e la lascia visibile sotto l'orlo.",
     details: ["Senza logo", "Trapuntata", "Zip a vista", "Volume corto"],
   },
   {
@@ -170,7 +170,7 @@ export const products = [
     image: "assets/products/felpa-gialla.jpg",
     featured: false,
     tag: "Street",
-    description: "Felpa cropped gialla, senza marchio. Cappuccio, coulisse e fondo a costine. Il giallo è pieno.",
+    description: "Felpa cropped gialla, senza marchio: cappuccio, coulisse e fondo a costine. Il giallo è pieno, non pastello, e la coulisse regola il volume.",
     details: ["Senza logo", "Cappuccio", "Cropped", "Coulisse"],
   },
   {
@@ -183,7 +183,7 @@ export const products = [
     image: "assets/products/tee-ossa.jpg",
     featured: false,
     tag: "Street",
-    description: "T-shirt nera da strada, senza marchio. Stampa chiara sul petto, taglio corto, spalla scesa.",
+    description: "T-shirt nera da strada, senza marchio, con una stampa chiara e piccola sul petto. Taglio corto e spalla scesa, così non esce dal pantalone.",
     details: ["Senza logo", "Stampa sul petto", "Taglio corto", "Jersey nero"],
   },
   {
@@ -196,7 +196,7 @@ export const products = [
     image: "assets/products/dolcevita-nord.jpg",
     featured: false,
     tag: "",
-    description: "Dolcevita in merino extrafine color argento. Collo alto, spalla rilassata, costine corte.",
+    description: "Dolcevita in merino extrafine color argento, collo alto e spalla rilassata. Le costine sono corte e la lana non punge. Lavare a mano.",
     details: ["Merino extrafine", "Collo alto", "Costine", "Lavare a mano"],
   },
   {
@@ -209,7 +209,7 @@ export const products = [
     image: "assets/products/gonna-stecca.jpg",
     featured: false,
     tag: "",
-    description: "Gonna midi color sabbia, vita alta e plissé fitto. Si muove come una maglia, resta in piega.",
+    description: "Gonna midi color sabbia, vita alta e plissé fitto che torna in piega da solo. Si muove come una maglia e resta alla caviglia.",
     details: ["Maglia plissettata", "Vita alta", "Lunghezza midi", "Elastico interno"],
   },
   {
@@ -222,7 +222,7 @@ export const products = [
     image: "assets/products/abito-colonna.jpg",
     featured: true,
     tag: "Novità",
-    description: "Abito colonna in crepe nero. Spalline sottili, scollo morbido, lunghezza alla caviglia.",
+    description: "Abito colonna in crepe nero, spalline sottili e scollo morbido. Cade alla caviglia senza incollarsi, con una fodera leggera.",
     details: ["Crepe fluido", "Spalline sottili", "Fodera leggera", "Lunghezza caviglia"],
   },
   {
@@ -235,7 +235,7 @@ export const products = [
     image: "assets/products/estratto-ombra.svg",
     featured: false,
     tag: "Novità",
-    description: "Profumo estratto. Legno bruciato, pepe e iris. Il nero della casa, in flacone.",
+    description: "Profumo estratto della casa: pepe in apertura, iris al centro, cedro e fumo che restano. È il nero del guardaroba, in flacone. Il sigillo deve restare integro per un reso.",
     details: ["Famiglia: legnosa", "Testa: pepe", "Cuore: iris", "Fondo: cedro e fumo"],
   },
   {
@@ -248,7 +248,7 @@ export const products = [
     image: "assets/products/vapore-osso.svg",
     featured: false,
     tag: "",
-    description: "Profumo leggero. Muschio bianco, tè e pelle pulita. Resta vicino alla pelle.",
+    description: "Profumo leggero di tè, muschio bianco e pelle pulita. Resta vicino al collo e ai polsi, nei formati da borsetta.",
     details: ["Famiglia: muschiata", "Testa: tè", "Cuore: muschio", "Fondo: pelle"],
   },
   {
@@ -261,7 +261,7 @@ export const products = [
     image: "assets/products/freddo-argento.svg",
     featured: false,
     tag: "",
-    description: "Profumo metallico e freddo. Aldeidi, violetta e ambra grigia. Una catena, non un fiore.",
+    description: "Profumo freddo di aldeidi, violetta e ambra grigia. Non è un fiore: è il metallo della casa, come una catena sull'abito nero.",
     details: ["Famiglia: aldeidata", "Testa: aldeidi", "Cuore: violetta", "Fondo: ambra grigia"],
   },
   {
@@ -274,7 +274,7 @@ export const products = [
     image: "assets/products/abito-velato.svg",
     featured: false,
     tag: "Sposa",
-    description: "Abito da sposa in crepe avorio con velo staccabile. Linea a colonna, spalline sottili, niente ricamo.",
+    description: "Abito da sposa in crepe avorio, linea a colonna e spalline sottili, senza ricamo. Il velo si stacca. Dopo orli o spille da prova il reso non è più possibile.",
     details: ["Crepe avorio", "Velo staccabile", "Chiusura nascosta", "Non modificabile dopo la prova"],
   },
   {
@@ -287,7 +287,7 @@ export const products = [
     image: "assets/products/abito-linea.svg",
     featured: false,
     tag: "",
-    description: "Abito da sposa minimale, scollo a barca e gonna dritta. Avorio caldo, nessun strascico.",
+    description: "Abito da sposa minimale in mikado leggero: scollo a barca, gonna dritta, nessun strascico. L'avorio è caldo, con fodera in seta.",
     details: ["Mikado leggero", "Scollo a barca", "Senza strascico", "Fodera in seta"],
   },
   {
@@ -300,7 +300,7 @@ export const products = [
     image: "assets/products/abito-architettura.svg",
     featured: false,
     tag: "",
-    description: "Abito da sposa con gonna ampia e corpetto strutturato. Il volume è architettonico, il colore resta avorio.",
+    description: "Abito da sposa con corpetto strutturato e gonna ampia. Il volume è architettonico, il colore resta avorio. La prova si prende in atelier, su appuntamento.",
     details: ["Corpetto strutturato", "Gonna ampia", "Bottoni coperti", "Prova in atelier su appuntamento"],
   },
   {
@@ -313,7 +313,7 @@ export const products = [
     image: "assets/products/pelliccia-nera.jpg",
     featured: true,
     tag: "Pelliccia",
-    description: "Pelliccia vera della casa, lunga e nera. Collo ampio, manica intera, senza marchio e senza logo.",
+    description: "Pelliccia vera della casa, lunga e nera, collo ampio e manica intera. Nessun marchio. Il pelo si tiene appeso, non piegato.",
     details: ["Pelliccia vera", "Senza logo", "Lunghezza sotto il ginocchio", "Fodera nera"],
   },
   {
@@ -326,7 +326,7 @@ export const products = [
     image: "assets/products/pelliccia-miele.jpg",
     featured: true,
     tag: "Pelliccia",
-    description: "Pelliccia vera color miele, al ginocchio, con cintura dello stesso pelo. Nessun marchio, nessun logo.",
+    description: "Pelliccia vera color miele, al ginocchio, con cintura dello stesso pelo. Nessun marchio. Il miele sta sul nero senza diventare un costume.",
     details: ["Pelliccia vera", "Senza logo", "Cintura in pelo", "Colore miele"],
   },
   {
@@ -339,7 +339,7 @@ export const products = [
     image: "assets/products/pelliccia-corta.jpg",
     featured: false,
     tag: "Pelliccia",
-    description: "Pelliccia vera corta, nera, taglio al punto vita. Senza marchio e senza logo.",
+    description: "Pelliccia vera corta, nera, taglio al punto vita e collo ampio. Nessun marchio. Sta su un abito colonna o su un pantalone dritto.",
     details: ["Pelliccia vera", "Senza logo", "Taglio corto", "Collo ampio"],
   },
   {
@@ -352,7 +352,7 @@ export const products = [
     image: "assets/products/valerio-abito-nero.svg",
     featured: true,
     tag: "Su misura",
-    description: "Abito su misura Valerio Moda. Giacca due bottoni, pantalone con pince, nero pieno. Il taglio si prende sul corpo.",
+    description: "Abito su misura Valerio Moda: giacca due bottoni, pantalone con pince, nero pieno in lana. La misura si prende sul corpo, da spalla a fondo gamba.",
     details: ["Stagione Valerio Moda", "Su misura", "Lana", "Due bottoni"],
   },
   {
@@ -365,7 +365,7 @@ export const products = [
     image: "assets/products/valerio-abito-gessato.svg",
     featured: true,
     tag: "Su misura",
-    description: "Abito su misura a gessato chiaro. Spalla naturale, rever stretto, pantalone dritto.",
+    description: "Abito su misura a gessato chiaro, spalla naturale e rever stretto. La riga è contenuta e il pantalone cade dritto.",
     details: ["Stagione Valerio Moda", "Su misura", "Gessato", "Spalla naturale"],
   },
   {
@@ -378,7 +378,7 @@ export const products = [
     image: "assets/products/valerio-giacca.svg",
     featured: false,
     tag: "Su misura",
-    description: "Giacca su misura, spalla senza imbottitura, un bottone, tasche a filo.",
+    description: "Giacca su misura, spalla senza imbottitura, un bottone e tasche a filo. È un pezzo solo, da abbinare a un pantalone già tuo.",
     details: ["Stagione Valerio Moda", "Su misura", "Un bottone", "Spalla naturale"],
   },
 ];

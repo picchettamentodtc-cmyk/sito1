@@ -131,7 +131,7 @@ export function renderDrawer() {
   const totals = cartTotals("standard");
   if (title) title.textContent = totals.count ? `Carrello (${totals.count})` : "Carrello";
   if (!totals.lines.length) {
-    body.innerHTML = `<p class="empty-copy">Il carrello è vuoto.</p><a class="btn" href="negozio.html">Vai al negozio</a>`;
+    body.innerHTML = `<p class="empty-copy">Il carrello è vuoto. Scegli un capo in negozio: la spedizione standard è gratuita da 180 €.</p><a class="btn" href="negozio.html">Vai al negozio</a>`;
     foot.innerHTML = "";
     return;
   }

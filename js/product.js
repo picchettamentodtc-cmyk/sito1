@@ -23,7 +23,7 @@ if (!product) {
   ].slice(0, 4);
 
   root.innerHTML = `<article class="product-layout">
-    <div class="product-photo"><img src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}" width="900" height="1200" /></div>
+    <div class="product-photo"><img src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}, ${escapeHtml(product.category)}" width="900" height="1200" /></div>
     <div class="product-info">
       <nav class="crumbs" aria-label="Percorso"><a href="home.html">Home</a><a href="negozio.html">Negozio</a><a href="negozio.html?cat=${encodeURIComponent(product.category)}">${escapeHtml(product.category)}</a></nav>
       <p class="eyebrow">${escapeHtml(product.category)}</p>
@@ -58,7 +58,7 @@ if (!product) {
           </div>
           <button class="btn" type="submit">Aggiungi al carrello</button>
         </div>
-        <p class="ship-note">Spedizione gratuita oltre 180 €. Reso gratuito entro 14 giorni. <a href="resi/">Leggi la politica resi</a>.</p>
+        <p class="ship-note">Spedizione standard gratuita oltre 180 €. Reso entro 14 giorni, alle condizioni della politica. <a href="resi/">Leggi la politica resi</a>.</p>
       </form>
       <dl class="specs">${product.details.map((detail) => `<div><dt>Dettaglio</dt><dd>${escapeHtml(detail)}</dd></div>`).join("")}</dl>
     </div>

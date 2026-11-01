@@ -23,7 +23,7 @@ export function productCard(product) {
     <a class="card-link" href="prodotto.html?id=${encodeURIComponent(product.id)}">
       <div class="card-media">
         ${tag}
-        <img src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}" width="900" height="1200" />
+        <img src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}, ${escapeHtml(product.category)}" width="900" height="1200" />
       </div>
       <div class="card-info">
         <div class="card-row">

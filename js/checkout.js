@@ -57,7 +57,7 @@ function field(name, label, value, error, extra = "") {
 function renderForm(values, errors) {
   const totals = cartTotals(values.spedizione || "standard");
   if (!totals.lines.length) {
-    root.innerHTML = `<div class="empty"><p>Il carrello è vuoto.</p><a class="btn" href="negozio.html">Vai al negozio</a></div>`;
+    root.innerHTML = `<div class="empty"><p>Il carrello è vuoto. Torna al negozio, scegli taglia e colore, poi conferma qui. Nessun pagamento parte da questa pagina.</p><a class="btn" href="negozio.html">Vai al negozio</a></div>`;
     return;
   }
   const standard = shippingCost(totals.subtotal, "standard");

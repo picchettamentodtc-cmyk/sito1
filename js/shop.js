@@ -17,10 +17,10 @@ const chips = document.querySelector("#active-filters");
 const backdrop = document.querySelector("#filter-backdrop");
 const openButton = document.querySelector("#open-filters");
 const leads = {
-  Profumi: "Estratti della casa. Formati da 30, 50 e 100 ml. Il sigillo deve restare integro per un reso.",
-  "Vestiti da sposa": "Abiti minimi per un giorno solo, nel taglio Mercury Search. Le modifiche escludono il reso.",
-  "Pellicce vere": "Pellicce vere della casa. Nessun marchio, nessun logo.",
-  "Valerio Moda": "Stagione Valerio Moda. Abiti su misura, taglio sul corpo.",
+  Profumi: "Estratti della casa. Formati da 30, 50 e 100 ml. Note di fumo, tè o aldeide. Il sigillo deve restare integro per un reso.",
+  "Vestiti da sposa": "Abiti minimi per un giorno solo, nel taglio Mercury Search: colonna, linea o volume. Le modifiche escludono il reso.",
+  "Pellicce vere": "Pellicce vere della casa, senza marchio. Nera lunga, miele al ginocchio, corta al punto vita. Si tengono appese.",
+  "Valerio Moda": "Stagione Valerio Moda. Abiti su misura, taglio sul corpo. I capi già tagliati non si rendono.",
 };
 
 function clamp(value, min, max) {
