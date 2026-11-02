@@ -1,5 +1,5 @@
 import "./common.js";
-import { getProduct, products, formatPrice, variantLabel } from "./products.js";
+import { careFor, getProduct, products, formatPrice, variantLabel } from "./products.js";
 import { addToCart } from "./store.js";
 import { openCart } from "./common.js";
 import { productCard, escapeHtml } from "./ui.js";
@@ -30,6 +30,7 @@ if (!product) {
       <h1>${escapeHtml(product.name)}</h1>
       <p class="product-price">${formatPrice(product.price)}</p>
       <p>${escapeHtml(product.description)}</p>
+      <p class="care-note"><span>Cura</span> ${escapeHtml(careFor(product))}</p>
       <form class="buy-form" novalidate>
         <fieldset class="buy-group">
           <legend>Colore</legend>

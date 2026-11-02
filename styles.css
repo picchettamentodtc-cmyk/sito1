@@ -300,8 +300,9 @@ h1, h2, h3, p { margin: 0; }
 .landing-board { background-color: rgba(255, 255, 255, 0.46); color: var(--bone); background-image: url("assets/pattern-light.svg?v=norect"); background-size: 140px 140px; }
 .landing-board-inner { width: min(1440px, calc(100% - 3rem)); margin: 0 auto; padding: 3.5rem 0 4rem; }
 .landing-board h2 { font-family: var(--display); font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 0.95; margin: 0.35rem 0 1.2rem; }
-.landing-cats { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 2.8rem; }
-.landing-cats a { border: 1px solid var(--bone); min-height: 44px; padding: 0.7rem 1rem; font-family: var(--display); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; }
+.landing-cats { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 1rem; }
+.landing-cats a { border: 1px solid var(--bone); min-height: 44px; padding: 0.7rem 1rem; font-family: var(--display); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease; }
+.landing-board-inner > p { max-width: 36rem; color: var(--muted); }
 .landing-cats a:hover { background: var(--gold); color: var(--ink); border-color: var(--gold); }
 .landing-board .btn { background: var(--gold); color: var(--ink); border-color: var(--gold); }
 .landing-carousel { background: rgba(255, 255, 255, 0.58); color: var(--bone); margin-bottom: 2rem; padding: 1.25rem; }
@@ -328,6 +329,7 @@ h1, h2, h3, p { margin: 0; }
   display: inline-flex;
   gap: 0.7rem;
   align-items: baseline;
+  flex-wrap: wrap;
   background: var(--ink);
   padding: 0.7rem 0.95rem;
   font-family: var(--display);
@@ -336,6 +338,7 @@ h1, h2, h3, p { margin: 0; }
   font-size: 0.78rem;
 }
 .landing-slide-label span { color: var(--gold); }
+.landing-slide-label em { font-style: normal; font-family: var(--sans); letter-spacing: 0.04em; text-transform: none; color: var(--muted); font-size: 0.82rem; }
 .landing-carousel-bar { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; margin-top: 0.85rem; }
 .landing-carousel-bar > button {
   min-height: 44px;
@@ -347,6 +350,7 @@ h1, h2, h3, p { margin: 0; }
   font-size: 0.68rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 .landing-carousel-bar > button:hover { background: var(--bone); color: var(--ink); }
 .landing-carousel-dots { display: flex; gap: 0.15rem; flex-wrap: wrap; justify-content: center; }
@@ -401,7 +405,11 @@ h1, h2, h3, p { margin: 0; }
   border-color: var(--gold);
 }
 .lab-notes .btn { color: var(--ink); border-color: var(--gold); background: var(--gold); }
-.lab-notes { padding: 3rem 0 4rem; display: grid; gap: 1rem; justify-items: start; max-width: 40rem; }
+.lab-notes { padding: 3rem 0 4rem; display: grid; gap: 1.25rem; justify-items: start; max-width: 40rem; }
+.lab-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.9rem; }
+.lab-steps li { display: grid; grid-template-columns: 2.4rem 1fr; gap: 0.75rem; align-items: baseline; }
+.lab-steps strong { font-family: var(--display); color: var(--gold); letter-spacing: 0.12em; font-weight: 700; }
+.lab-steps p { margin: 0; }
 .old-school { border: 3px solid var(--bone); padding: 1.6rem 1.3rem 1.2rem; margin-bottom: 3rem; background-color: rgba(255, 255, 255, 0.4); background-image: repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(225, 6, 0, 0.08) 10px, rgba(225, 6, 0, 0.08) 11px); }
 .pellicce { border: 3px solid var(--gold); padding: 1.6rem 1.3rem 1.2rem; margin-bottom: 3rem; background-color: rgba(255, 255, 255, 0.5); }
 .pellicce h1, .pellicce-entry h2 { font-family: var(--display); font-weight: 700; letter-spacing: 0.02em; text-transform: uppercase; line-height: 0.82; }
@@ -575,6 +583,8 @@ h1, h2, h3, p { margin: 0; }
 .filters-close, .filters-apply, .filter-open, .filter-backdrop { display: none; }
 
 .product-layout { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 3rem; padding-bottom: 3rem; }
+.care-note { color: var(--muted); max-width: 36rem; }
+.care-note span { font-family: var(--display); letter-spacing: 0.14em; text-transform: uppercase; font-size: 0.68rem; color: var(--gold); margin-right: 0.45rem; }
 .product-photo { overflow: hidden; }
 .product-photo img { aspect-ratio: 3 / 4; object-fit: cover; background: #fff5f5; }
 .product-info { position: sticky; top: 7.5rem; align-self: start; }

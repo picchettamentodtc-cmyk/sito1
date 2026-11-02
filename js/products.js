@@ -383,6 +383,26 @@ export const products = [
   },
 ];
 
+const careNotes = {
+  Cappotti: "Appendi il cappotto su una gruccia larga. Spazzola la lana a freddo. Lavaggio a secco.",
+  Felpe: "Lava a freddo, al rovescio, e stendi in piano. Il bianco resta bianco se non entra in asciugatrice.",
+  Camicie: "Solo lavaggio a secco. La seta si stira dal rovescio, a bassa temperatura.",
+  Pantaloni: "La gamba dritta non ha bisogno di una piega da cerimonia. Lava a freddo o a secco.",
+  Giacche: "Appendi sulla gruccia larga. Il nylon si passa con un panno umido; lana e trapunta vanno a secco.",
+  "T-shirt": "Lava a freddo, al rovescio. La stampa non si stira.",
+  Maglie: "Lava il merino a mano, in acqua fredda, e stendilo in piano.",
+  Gonne: "Il plissé torna in piega da solo. Il ferro non va diretto sul tessuto.",
+  Abiti: "Lavaggio a secco. Il crepe si appende, non si piega in valigia.",
+  Profumi: "Tieni il flacone al buio e lontano dal calore. Il sigillo aperto esclude il reso.",
+  "Vestiti da sposa": "La prova è senza spille e senza orli. Dopo una modifica il reso non è possibile. Si conserva appeso.",
+  "Pellicce vere": "Gruccia larga, luogo fresco, lontano dal calore. Il pelo non si piega.",
+  "Valerio Moda": "Le misure si prendono in atelier. Il capo già tagliato sul corpo non si rende.",
+};
+
+export function careFor(product) {
+  return careNotes[product.category] || "";
+}
+
 export function getProduct(id) {
   return products.find((product) => product.id === id) || null;
 }
