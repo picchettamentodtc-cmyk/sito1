@@ -117,24 +117,26 @@ h1, h2, h3, p { margin: 0; }
 .topbar a { text-decoration: underline; text-underline-offset: 0.2em; }
 .header-inner {
   display: grid;
-  grid-template-columns: auto 1fr auto auto auto;
+  grid-template-columns: max-content minmax(0, 1fr) auto auto;
   align-items: center;
-  gap: 1.25rem;
+  column-gap: 1.75rem;
+  row-gap: 0.4rem;
   min-height: 72px;
   width: min(1440px, calc(100% - 3rem));
   margin: 0 auto;
 }
-.logo, .footer-logo { display: inline-flex; align-items: center; gap: 0.65rem; }
+.logo, .footer-logo { display: inline-flex; align-items: center; gap: 1rem; }
+.logo { justify-self: start; min-width: max-content; }
 .logo-text, .footer-logo {
   font-family: var(--display);
   font-weight: 700;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   white-space: nowrap;
 }
-.logo-mark { width: 52px; height: 52px; object-fit: contain; }
-.main-nav { display: flex; gap: 0.85rem; min-width: max-content; }
+.logo-mark { width: 40px; height: 40px; flex: 0 0 auto; object-fit: contain; display: block; }
+.main-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem 0.85rem; min-width: 0; }
 .main-nav a {
   font-family: var(--display);
   font-size: 0.72rem;
@@ -147,7 +149,7 @@ h1, h2, h3, p { margin: 0; }
   display: flex;
   align-items: center;
   border-bottom: 1px solid var(--line-strong);
-  min-width: 180px;
+  min-width: 9.5rem;
 }
 .header-search input, .shop-search input {
   border: 0;
