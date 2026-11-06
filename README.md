@@ -17,3 +17,7 @@ Il checkout non invia ordini e non addebita pagamenti: il riepilogo resta solo n
 Pubblicazione attuale, aggiornata quando il ramo è su `main`:
 
 **https://picchettamentodtc-cmyk.github.io/sito1/**
+
+## Logo Mercurio Search
+
+Versione definitiva: `logo-mercurio/logo-mercurio-search-ermes-v2-badge.jpg` (badge circolare, Mercurio al centro). Dettagli in `logo-mercurio/README.md`.
