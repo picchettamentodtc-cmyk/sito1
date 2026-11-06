@@ -6,8 +6,12 @@
 
 - Badge circolare bianco/rosso
 - Dio Mercurio (Ermes) al centro: elmo alato, caduceo, sandali alati
-- Testo `MERCURIO SEARCH` arcuato in basso
+- Testo arcuato in basso in caratteri greci antichi: `ΜΕΡΚΟΥΡΙΟ ΣΕΡΤΣ`
 - Senza croce e senza simbolo rotondo con corna
+
+## Mosaico (lavoro separato)
+
+`logo-mercurio-search-ermes-v2-badge-mosaic.jpg` — solo lo sfondo in sampietrini romani; Ermes e il testo greco restano puliti.
 
 ## Altre risorse (non definitive)
 
@@ -16,5 +20,3 @@
 - `logo-mercurio-search-ermes-v1-stacked.jpg` — variante stacked
 - `logo-mercurio-search-ermes-v3-split-type.jpg` — variante tipografia spezzata
 - `logo-mercurio-search-ermes-v4-inverted.jpg` — variante invertita
-
-La trasformazione in mosaico dell’immagine badge inviata dal caller è gestita a parte e non fa parte della versione definitiva.
