@@ -1,0 +1,156 @@
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(260px, 0.7fr);
+  gap: 28px;
+  align-items: start;
+  margin-top: 28px;
+}
+
+.list {
+  display: grid;
+  gap: 14px;
+  list-style: none;
+}
+
+.line {
+  display: grid;
+  grid-template-columns: 76px minmax(0, 1fr);
+  gap: 14px;
+  padding: 14px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+}
+
+.thumb {
+  width: 76px;
+  height: 96px;
+  border-radius: 12px;
+}
+
+.category {
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 650;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.name {
+  font-size: 1.35rem;
+  margin: 2px 0 4px;
+}
+
+.unit {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.stepper {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.stepper button,
+.stepper input {
+  width: 42px;
+  height: 40px;
+  border: 0;
+  background: transparent;
+  text-align: center;
+}
+
+.stepper input {
+  width: 48px;
+  border-inline: 1px solid var(--line);
+}
+
+.stepper input::-webkit-outer-spin-button,
+.stepper input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.stepper input[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+.lineTotal {
+  margin-left: auto;
+  font-weight: 700;
+}
+
+.summary {
+  position: sticky;
+  top: 5.5rem;
+  display: grid;
+  gap: 12px;
+  padding: 20px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+}
+
+.summary h2 {
+  font-size: 1.6rem;
+}
+
+.row,
+.total {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.row {
+  color: var(--muted);
+}
+
+.total {
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+  font-size: 1.15rem;
+  font-weight: 720;
+}
+
+.summary .btn {
+  width: 100%;
+  margin-top: 8px;
+}
+
+.intro {
+  display: grid;
+  gap: 10px;
+  max-width: 40rem;
+}
+
+.intro h1 {
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+}
+
+@media (max-width: 800px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .summary {
+    position: static;
+  }
+
+  .lineTotal {
+    margin-left: 0;
+  }
+}
