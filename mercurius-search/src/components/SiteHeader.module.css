@@ -1,0 +1,91 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(243, 239, 232, 0.9);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(14px);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 4.5rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.mark {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  flex: none;
+  border-radius: 9px;
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.wordmark {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  font-weight: 560;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 14px;
+  border-radius: 999px;
+  font-weight: 620;
+}
+
+.nav a[aria-current="page"] {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.badge {
+  display: inline-grid;
+  place-items: center;
+  min-width: 1.3rem;
+  height: 1.3rem;
+  margin-left: 8px;
+  padding: 0 0.35rem;
+  border-radius: 999px;
+  background: var(--cinnabar);
+  color: white;
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
+.nav a[aria-current="page"] .badge {
+  background: var(--bg);
+  color: var(--ink);
+}
+
+@media (max-width: 560px) {
+  .wordmark {
+    font-size: 1.05rem;
+  }
+
+  .nav a {
+    padding: 0 10px;
+  }
+}
