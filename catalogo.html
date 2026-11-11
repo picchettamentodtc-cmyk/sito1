@@ -26,6 +26,7 @@
         </a>
         <nav class="main-nav" aria-label="Navigazione principale">
           <a href="catalogo.html" aria-current="page">Catalogo</a>
+          <a href="index.html#top-performance">Top Performance</a>
           <a href="index.html#categorie">Categorie</a>
           <a href="index.html#compatibilita">Compatibilità</a>
           <a href="contatti.html">Assistenza</a>
@@ -56,6 +57,7 @@
           <button type="submit">Cerca</button>
         </form>
         <a href="catalogo.html" aria-current="page">Catalogo</a>
+        <a href="index.html#top-performance">Top Performance</a>
         <a href="index.html#categorie">Categorie</a>
         <a href="contatti.html">Assistenza</a>
         <a href="resi.html">Resi</a>
@@ -68,6 +70,7 @@
         <p class="eyebrow">Catalogo</p>
         <h1>Ricambi per motorini</h1>
         <p>Filtra per categoria, marca o modello. La compatibilità è confermata nella scheda di ogni pezzo.</p>
+        <p class="line-banner" id="line-banner" hidden>Linea Top Performance: ricambi da corsa, con compatibilità in scheda.</p>
       </header>
       <div class="catalog-layout">
         <details class="filter-drawer" id="filter-drawer" open>
@@ -78,6 +81,10 @@
               <input id="catalog-q" type="search" name="q" placeholder="Nome, codice, modello…" />
               <button type="submit">Cerca</button>
             </div>
+            <fieldset>
+              <legend>Linea</legend>
+              <div id="line-filters"></div>
+            </fieldset>
             <fieldset>
               <legend>Categoria</legend>
               <div id="cat-filters"></div>

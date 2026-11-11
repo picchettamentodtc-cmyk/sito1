@@ -2,6 +2,7 @@
   const marca = document.getElementById("finder-marca");
   const modello = document.getElementById("finder-modello");
   const grid = document.getElementById("featured-grid");
+  const performanceGrid = document.getElementById("performance-grid");
   const count = document.getElementById("stat-count");
 
   if (count) count.textContent = String(window.SHOP.products.length);
@@ -46,6 +47,13 @@
   if (grid) {
     grid.innerHTML = window.SHOP.products
       .filter((product) => product.featured)
+      .map((product) => window.ShopUI.card(product))
+      .join("");
+  }
+
+  if (performanceGrid) {
+    performanceGrid.innerHTML = window.SHOP.products
+      .filter((product) => product.line === "performance")
       .map((product) => window.ShopUI.card(product))
       .join("");
   }

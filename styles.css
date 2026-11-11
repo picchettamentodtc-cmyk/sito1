@@ -448,6 +448,61 @@ h1 {
   padding: 1rem;
 }
 
+.performance {
+  margin-top: 0.5rem;
+  padding: 2rem 0 2.2rem;
+  background:
+    linear-gradient(100deg, rgba(255, 106, 26, 0.2), transparent 46%),
+    #16120f;
+  border-block: 1px solid rgba(255, 106, 26, 0.45);
+}
+
+.performance-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.performance-lead {
+  margin: -0.15rem 0 1.15rem;
+  max-width: 42rem;
+  color: var(--muted);
+}
+
+.performance .product-card {
+  background: #1c1815;
+}
+
+.performance .line-tag {
+  display: none;
+}
+
+.line-tag {
+  display: inline-block;
+  align-self: flex-start;
+  width: fit-content;
+  margin: 0 0 0.35rem;
+  background: var(--orange);
+  color: #1a1008;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.18rem 0.45rem;
+}
+
+a.line-tag:hover {
+  background: var(--ink);
+}
+
+.line-banner {
+  margin: 0.8rem 0 0;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid rgba(255, 106, 26, 0.45);
+  background: rgba(255, 106, 26, 0.1);
+  color: var(--ink);
+}
+
 .band,
 .page,
 .features,
