@@ -1,52 +1,18 @@
-(function () {
-  const marca = document.getElementById("finder-marca");
-  const modello = document.getElementById("finder-modello");
-  const grid = document.getElementById("featured-grid");
-  const count = document.getElementById("stat-count");
+import "./common.js";
+import { products, categories } from "./products.js";
+import { productCard, escapeHtml } from "./ui.js";
 
-  if (count) count.textContent = String(window.SHOP.products.length);
+const featured = document.querySelector("#featured");
+if (featured) {
+  featured.innerHTML = products.filter((product) => product.featured).map(productCard).join("");
+}
 
-  function fillBrands() {
-    if (!marca) return;
-    window.SHOP.brands.forEach((brand) => {
-      const option = document.createElement("option");
-      option.value = brand.id;
-      option.textContent = brand.label;
-      marca.appendChild(option);
-    });
-  }
-
-  function fillModels() {
-    if (!modello) return;
-    const current = modello.value;
-    modello.replaceChildren();
-    const all = document.createElement("option");
-    all.value = "";
-    all.textContent = "Tutti i modelli";
-    modello.appendChild(all);
-    window.SHOP.models
-      .filter((model) => !marca.value || model.brand === marca.value)
-      .forEach((model) => {
-        const option = document.createElement("option");
-        option.value = model.id;
-        option.textContent = model.label;
-        modello.appendChild(option);
-      });
-    if (current && modello.querySelector('option[value="' + current + '"]')) {
-      modello.value = current;
-    }
-  }
-
-  if (marca && modello) {
-    fillBrands();
-    fillModels();
-    marca.addEventListener("change", fillModels);
-  }
-
-  if (grid) {
-    grid.innerHTML = window.SHOP.products
-      .filter((product) => product.featured)
-      .map((product) => window.ShopUI.card(product))
-      .join("");
-  }
-})();
+const list = document.querySelector("#category-list");
+if (list) {
+  list.innerHTML = categories()
+    .map((category) => {
+      const count = products.filter((product) => product.category === category).length;
+      return `<a href="negozio.html?cat=${encodeURIComponent(category)}"><span>${escapeHtml(category)}</span><span>${count}</span></a>`;
+    })
+    .join("");
+}

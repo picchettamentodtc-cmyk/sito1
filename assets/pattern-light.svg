@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
+  <g fill="none" stroke="#f3f0ea" stroke-opacity="0.28" stroke-width="0.7">
+    <path d="M0 80 L80 0"/>
+    <path d="M0 40 L40 0"/>
+    <path d="M40 80 L80 40"/>
+    <path d="M0 20 L20 0"/>
+    <path d="M60 80 L80 60"/>
+    <path d="M20 80 L80 20"/>
+  </g>
+  <path d="M0 79.5 H26 M54 79.5 H80" fill="none" stroke="#f3f0ea" stroke-opacity="0.35" stroke-width="0.6"/>
+</svg>
